@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Bitbucket,分布式版本控制系统,Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="公羽红楼的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="核心流程： 从远端中心repo那里 Git  clone 到本地，再在本地开发（add, commit）, 通常会利用branch管理，如果觉得code 没问题了，就push到远端的中心repo上。这里中心的repo 就是 bitbucket上的repo。 git 之后 不需要 减号-  git  clone https的path  把repo下载到本地  git status  查看哪些文件修改">
+<meta name="keywords" content="Bitbucket,分布式版本控制系统,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bitbucket - 用git 用法">
+<meta property="og:url" content="http://www.cnblogs.com/gongyuhonglou/2018/03/20/Bitbucket - 用git 用法/index.html">
+<meta property="og:site_name" content="公羽红楼的博客">
+<meta property="og:description" content="核心流程： 从远端中心repo那里 Git  clone 到本地，再在本地开发（add, commit）, 通常会利用branch管理，如果觉得code 没问题了，就push到远端的中心repo上。这里中心的repo 就是 bitbucket上的repo。 git 之后 不需要 减号-  git  clone https的path  把repo下载到本地  git status  查看哪些文件修改">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-22T06:09:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bitbucket - 用git 用法">
+<meta name="twitter:description" content="核心流程： 从远端中心repo那里 Git  clone 到本地，再在本地开发（add, commit）, 通常会利用branch管理，如果觉得code 没问题了，就push到远端的中心repo上。这里中心的repo 就是 bitbucket上的repo。 git 之后 不需要 减号-  git  clone https的path  把repo下载到本地  git status  查看哪些文件修改">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.cnblogs.com/gongyuhonglou/2018/03/20/Bitbucket - 用git 用法/"/>
+
+
+
+
+
+  <title>Bitbucket - 用git 用法 | 公羽红楼的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gongyuhonglou" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">公羽红楼的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">天道酬勤！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.cnblogs.com/gongyuhonglou/2018/03/20/Bitbucket - 用git 用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Franks Weng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/blogImg/diary-2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="公羽红楼的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Bitbucket - 用git 用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T18:04:21+08:00">
+                2018-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>核心流程： 从远端中心repo那里</strong> <a href="http://lib.csdn.net/base/git" target="_blank" rel="noopener">Git</a> <strong> clone 到本地，再在本地开发（add, commit）, 通常会利用branch管理，如果觉得code 没问题了，就push到远端的中心repo上。这里中心的repo 就是 bitbucket上的repo。</strong></p>
+<p>git 之后 不需要 减号-</p>
+<ol>
+<li>git  clone https的path</li>
+</ol>
+<p>把repo下载到本地</p>
+<ol>
+<li>git status</li>
+</ol>
+<p>查看哪些文件修改了。</p>
+<p>如果提交前，想看看具体那些文件发生变化，可以通过git-diff来查看。git diff 与 git status 区别?</p>
+<ol>
+<li>git  add filelist 或者* 告诉git，这些file改变了，将要commit。只是起到通知和标识的作用</li>
+</ol>
+<p>相当于上传照片的时候，&quot;选中&quot;照片的功能，commit 则相当于上传</p>
+<ol>
+<li>git commit</li>
+</ol>
+<p>git commit -m &quot;   &quot;</p>
+<ol>
+<li>git branch分支管理</li>
+</ol>
+<p>在 git 版本库中创建分支的成本几乎为零，所以，不必吝啬多创建几个分支。当第一次执行git init时，系统就会创建一个名为&quot;master&quot;的分支。在bitbucket中已经创建了master分支（trunk）我们只需要clone下来即可。而其它分支则通过手工创建。下面列举一些常见的分支策略，这些策略相信会对你的日常开发带来很大的便利。</p>
+<p>1.创建一个属于自己的个人工作分支，以避免对主分支 master 造成太多的干扰，也方便与他人交流协作。</p>
+<p>2.当进行高风险的工作时，创建一个试验性的分支，扔掉一个烂摊子总比收拾一个烂摊子好得多。</p>
+<p>3.合并别人的工作的时候，最好是创建一个临时的分支用来合并，合并完成后在&quot;fatch&quot;到自己的分支（合并和fatch后面有讲述，不明白就继续往下看好了）</p>
+<p><strong>查看分支</strong>  – git branch</p>
+<p>调用git branch可以查看程序中已经存在的分支和当前分支</p>
+<p><strong>创建分支</strong>  – git branch 分支名</p>
+<p>要创建一个分支，可以使用如下方法:</p>
+<ol>
+<li><p>git branch 分支名称</p>
+</li>
+<li><p>git checkout –b 分支名</p>
+</li>
+</ol>
+<p>使用第一种方法，虽然创建了分支，但是不会将当前工作分支切换到新创建的分支上，因此，还需要命令&quot;git checkout 分支名&quot; 来切换， 而第二种方法不但创建了分支，还将当前工作分支切换到了该分支上。</p>
+<p>另外，需要注意，分支名称是有可能出现重名的情况的， 比如说，我在master分支下创建了a和b两个分支，然后切换到b分支，在b分支下又创建了a和c分支。 这种操作是可以进行的。 此时的a分支和master下的a分支实际上是两个不同的分支。因此，在实际使用时，不建议这样的操作，这样会带来命名上的疑惑。</p>
+<p><strong>删除分支</strong>  – git branch -d或–D 分支名</p>
+<p>-d 是删除，-D是强制删除</p>
+<p>git branch –D 分支名可以删除分支，但是需要小心，删除后，发生在该分支的所有变化都无法恢复。</p>
+<p><strong>切换分支</strong>  – git checkout 分支名</p>
+<p>如果分支已经存在， 可以通过 git checkout 分支名 来切换工作分支到该分支名</p>
+<p><strong>合并分支</strong>  – git merge</p>
+<p>git merge的用法为：git-merge &quot;some memo&quot; 合并的目标分支 合并的来源分支。如：</p>
+<p>如果合并有冲突，git会由提示，当前，git merge已经很少用了， 用git pull来替代了。</p>
+<p>用法为：git pull 合并的目标分支 合并的来源分支。 如git-pull . dev1</p>
+<h2 id="分支的管理"><a href="#分支的管理" class="headerlink" title="分支的管理"></a><strong>分支的管理</strong></h2><p>到目前为止，你已经学会了如何创建、合并和删除分支。除此之外，我们还需要学习如何管理分支，在日后的常规工作中会经常用到下面介绍的管理命令。</p>
+<p>git branch 命令不仅仅能创建和删除分支，如果不加任何参数，它会给出当前所有分支的清单：</p>
+<p>$ git branch</p>
+<p>  iss53</p>
+<p>* master</p>
+<p>  testing</p>
+<p>注意看 master 分支前的 * 字符：它表示当前所在的分支。也就是说，如果现在提交更新，master 分支将随着开发进度前移。若要查看各个分支最后一个提交对象的信息，运行 git branch -v：</p>
+<p>$ git branch -v</p>
+<p>  iss53   93b412c fix javascript issue</p>
+<p>* master  7a98805 Merge branch &#39;iss53&#39;</p>
+<p>  testing 782fd34 add scott to the author list in the readmes</p>
+<p>要从该清单中筛选出你已经（或尚未）与当前分支合并的分支，可以用 –merged 和 –no-merged 选项（Git 1.5.6 以上版本）。比如用 git branch –merged 查看哪些分支已被并入当前分支（译注：也就是说哪些分支是当前分支的直接上游。）：</p>
+<p>$ git branch –merged</p>
+<p>  iss53</p>
+<p>* master</p>
+<p>之前我们已经合并了 iss53，所以在这里会看到它。一般来说，列表中没有 * 的分支通常都可以用 git branch -d 来删掉。原因很简单，既然已经把它们所包含的工作整合到了其他分支，删掉也不会损失什么。</p>
+<p>另外可以用 git branch –no-merged 查看尚未合并的工作：</p>
+<p>$ git branch –no-merged</p>
+<p>  testing</p>
+<p>它会显示还未合并进来的分支。由于这些分支中还包含着尚未合并进来的工作成果，所以简单地用 git branch -d 删除该分支会提示错误，因为那样做会丢失数据：</p>
+<p>$ git branch -d testing</p>
+<p>error: The branch &#39;testing&#39; is not fully merged.</p>
+<p>If you are sure you want to delete it, run &#39;git branch -D testing&#39;.</p>
+<p>不过，如果你确实想要删除该分支上的改动，可以用大写的删除选项 -D 强制执行，就像上面提示信息中给出的那样。</p>
+<p>与远程sever操作！！ clone pull push</p>
+<p>2.7 远程获取一个git库 git-clone</p>
+<p>在2.1节提到过，如果你不是一个代码模块的发起者，也不会使用到git-init命令，而是更多的是使用git-clone。通过这个命令，你可以从远端完整获取一个git库，并可以通过一些命令和远端的git交互。</p>
+<p>基于git的代码管理的组织结构，往往形成一个树状结构，开发者一般从某个代码模块的管理者的git库通过git-clone取得开发环境，在本地迭代开发后，再提交给该模块的管理者，该模块的管理者检查这些提交并将代码合并到自己的库中，并向更高一级的代码管理者提交自己的模块代码。</p>
+<p>git-clone的使用方法如下： git-clone [ssh://]username@ipaddr:path。 其中， &quot;ssh://&quot;可选，也有别的获取方式，如rsync。 Path是远端git的根路径，也叫repository。</p>
+<p>通过git-clone获取远端git库后，.git/config中的开发者信息不会被一起clone过来。仍然需要为.git/config文件添加开发者信息。此外，开发者还需要自己添加. gitignore文件</p>
+<p>另外，通过git-clone获取的远端git库，只包含了远端git库的当前工作分支。如果想获取其它分支信息，需要使用&quot;git-branch –r&quot; 来查看， 如果需要将远程的其它分支代码也获取过来，可以使用命令&quot; git checkout -b 本地分支名远程分支名&quot;，其中，远程分支名为git-branch –r所列出的分支名， 一般是诸如&quot;origin/分支名&quot;的样子。如果本地分支名已经存在，则不需要&quot;-b&quot;参数。</p>
+<p>2.8 从远程获取一个git分支 – git-pull</p>
+<p>与git-clone不同， git-pull可以从任意一个git库获取某个分支的内容。用法如下：</p>
+<p>git-pull username@ipaddr: 远端repository名 远端分支名:本地分支名。这条命令将从远端git库的远端分支名获取到本地git库的一个本地分支中。其中，如果不写本地分支名，则默认pull到本地当前分支。</p>
+<p>需要注意的是，git-pull也可以用来合并分支。 和git-merge的作用相同。 因此，如果你的本地分支已经有内容，则git-pull会合并这些文件，如果有冲突会报警。</p>
+<p>2.9 将本地分支内容提交到远端分支 – git-push</p>
+<p>git-push和git-pull正好想反，是将本地某个分支的内容提交到远端某个分支上。用法：</p>
+<p>git-push username@ipaddr: 远端repository名 本地分支名:远端分支名。这条命令将本地git库的一个本地分支push到远端git库的远端分支名中。</p>
+<p>需要格外注意的是，git-push好像不会自动合并文件。这点我的试验表明是这样，但我不能确认是否是我用错了。因此，如果git-push时，发生了冲突，就会被后push的文件内容强行覆盖，而且没有什么提示。 这在合作开发时是很危险的事情。</p>
+<p>2.10 库的逆转与恢复 – git-reset</p>
+<p>库的逆转与恢复除了用来进行一些废弃的研发代码的重置外，还有一个重要的作用。比如我们从远程clone了一个代码库，在本地开发后，准备提交回远程。但是本地代码库在开发时，有功能性的commit，也有出于备份目的的commit等等。总之，commit的日志中有大量无用log，我们并不想把这些 log在提交回远程时也提交到库中。 因此，就要用到git-reset。</p>
+<p>Git-reset的概念比较复杂。它的命令形式：git-reset [–mixed | –soft | –hard] [&lt;commit-ish&gt;]</p>
+<p>命令的选项：</p>
+<p>–mixed</p>
+<p>这个是默认的选项。 如git-reset [–mixed] dev1^(dev1^的定义可以参见2.6.5)。它的作用仅是重置分支状态到dev1^, 但是却不改变任何工作文件的内容。即，从dev1^到dev1的所有文件变化都保留了，但是dev1^到dev1之间的所有commit日志都被清除了，而且，发生变化的文件内容也没有通过git-add标识，如果您要重新commit，还需要对变化的文件做一次git-add。这样，commit后，就得到了一份非常干净的提交记录。</p>
+<p>–soft</p>
+<p>相当于做了git-reset –mixed，后，又对变化的文件做了git-add。如果用了该选项， 就可以直接commit了。</p>
+<p>–hard</p>
+<p>这个命令就会导致所有信息的回退， 包括文件内容。 一般只有在重置废弃代码时，才用它。 执行后，文件内容也无法恢复回来了。</p>
+<ol>
+<li>基于git的合作开发</li>
+</ol>
+<p>对于酷讯来说，当我们采用了Git，如何进行合作开发呢？ 具体步骤如下：</p>
+<p>3.1 获取最新代码</p>
+<p>酷讯会准备一个中心git代码库。首先，我们将整理好的代码分模块在git中心库中建立git库。并将文件add到中心库中。 接下来，开发者通过git-clone将代码从中心库clone到本地开发环境。<br>对于较大的项目，我们还建议每个组选择一个负责人，由这个负责人负责从中心库获取和更新最新的代码，其它开发者从这个负责人的git代码库中clone代码。此时，对开发者来说，这个负责人的git库就是中心库了。</p>
+<p>3.2 和中心库进行代码合并</p>
+<p>使用过CVS的人都知道， 在commit之前，都要做一次cvs update，以避免和中心库冲突。Git也是如此。</p>
+<p>现在我们已经经过了code review， 准备向中心库提交变化了， 在开发的这段时间，也许中心库发生了变化，因此，我们需要在向中心库提交前，再次将中心库的master分支git-pull到本地的master分支上。并且和dev分支做合并。最终，将合并的代码放入master分支。</p>
+<p>如果开发过程提交日志过多，可以考虑参照2.10节的介绍做一次git-reset。</p>
+<p>此外，如果发现合并过程变化非常多， 出于代码质量考虑，建议再做一次code review</p>
+<p>3.3提交代码到中心库</p>
+<p>此时，已经完全准备好提交最终的代码了。 通过git-push就可以了。</p>
+<p>3.4合作流程总结</p>
+<p>大家可以看到，使用git进行合作开发，这一过程和CVS有很多相似性，同时，增强了以下几个环节：</p>
+<ol>
+<li><p>开发者在本地进行迭代开发，可以经常的做commit操作且不会影响他人。 而且即使不在线也可以进行开发。只需要最后向中心库提交一次即可。</p>
+</li>
+<li><p>大家都知道，如果CVS管理代码，由于我们会常常做commit操作。但是在commit之前cvs update时常会遇到将中心库上的其它最新代码checkout下来的情况，此时，一旦出现问题，就很难确认到底是自己开发的bug还是其它用户的代码带来了影响。 而使用git则避免了用户间的开发互相影响。</p>
+</li>
+<li><p>更有利于在代码提交前做code review。以往用cvs， 都是代码提交后才做code view。如果发生问题， 也无法避免服务器上有不好的代码。 但是用git，真正向中心库commit前，都是在本地开发，可以方便的进行code review， 然后才提交到中心库。更有利于代码质量。而且，大家应该可以感到，使用git的过程中，更容易对代码进行code review，因为影响因素更小。</p>
+</li>
+<li><p>创建多分支，更容易在开发中进行多种工作，而使工作间不会互相影响。 比如user2对user1的代码进行code review时，就可以非常方便的保留当时的开发现场，并切换到user1的代码分支，在code review完毕后，也可以非常方便的切换会曾经被中断的工作现场。</p>
+</li>
+</ol>
+<p>诚然，带来这些好处的同时，确实也使得操作比CVS复杂了一些。但我们觉得和前面所能获得的好处相比，这些麻烦是值得的。 当大家用惯了之后会发现，这并不增加多大的复杂性， 而且开发流程会更加自然。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bitbucket/" rel="tag"><i class="fa fa-tag"></i> Bitbucket</a>
+          
+            <a href="/tags/分布式版本控制系统/" rel="tag"><i class="fa fa-tag"></i> 分布式版本控制系统</a>
+          
+            <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/20/Git - 生成ssh key步骤以及如何clone所有的远程分支/" rel="next" title="Git - 生成ssh key步骤以及如何clone所有的远程分支">
+                <i class="fa fa-chevron-left"></i> Git - 生成ssh key步骤以及如何clone所有的远程分支
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/assets/blogImg/diary-2.jpg"
+                alt="Franks Weng" />
+            
+              <p class="site-author-name" itemprop="name">Franks Weng</p>
+              <p class="site-description motion-element" itemprop="description">擅长iOS，Swift，Python技能，深入研究移动端开发与前端性能。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/gongyuhonglou" target="_blank" title="Blogs">
+                      
+                        <i class="fa fa-fw fa-blogs"></i>Blogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gongyuhonglou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wengrp@yeah.net" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支的管理"><span class="nav-number">1.</span> <span class="nav-text">分支的管理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Franks Weng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
