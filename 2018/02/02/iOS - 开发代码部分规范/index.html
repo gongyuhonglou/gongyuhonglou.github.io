@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="公羽红楼的博客">
 <meta property="og:description" content="1. 关于命名 1.1 统一要求  含义清楚，尽量做到不需要注释也能了解其作用，若做不到，就加注释 使用全称，不适用缩写  1.2 类的命名  大驼峰式命名：每个单词的首字母都采用大写字母     例子：MFHomePageViewController          后缀要求  a.ViewController: 使用ViewController做后缀    例子: MFHomeViewCon">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-22T09:37:26.000Z">
+<meta property="og:updated_time" content="2018-03-22T09:42:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 开发代码部分规范">
 <meta name="twitter:description" content="1. 关于命名 1.1 统一要求  含义清楚，尽量做到不需要注释也能了解其作用，若做不到，就加注释 使用全称，不适用缩写  1.2 类的命名  大驼峰式命名：每个单词的首字母都采用大写字母     例子：MFHomePageViewController          后缀要求  a.ViewController: 使用ViewController做后缀    例子: MFHomeViewCon">
@@ -536,7 +536,7 @@
 <li>Enum类型的命名与类的命名规则一致</li>
 <li>Enum中枚举内容的命名需要以该Enum类型名称开头</li>
 </ul>
-<p>| 例子:  typedef NS_ENUM(NSInteger, AFNetworkReachabilityStatus) {<br>    AFNetworkReachabilityStatusUnknown = -1,<br>    AFNetworkReachabilityStatusNotReachable = 0,<br>    AFNetworkReachabilityStatusReachableViaWWAN = 1,<br>    AFNetworkReachabilityStatusReachableViaWiFi = 2<br>    }; |<br>| — | — |</p>
+<p>例子:  typedef NS_ENUM(NSInteger, AFNetworkReachabilityStatus) {<br>    AFNetworkReachabilityStatusUnknown = -1,<br>    AFNetworkReachabilityStatusNotReachable = 0,<br>    AFNetworkReachabilityStatusReachableViaWWAN = 1,<br>    AFNetworkReachabilityStatusReachableViaWiFi = 2<br>    }; </p>
 <p><strong>1.7 Delegate命名</strong></p>
 <ul>
 <li>类的实例必须为回调方法的参数之一</li>
@@ -586,16 +586,17 @@
 <ul>
 <li>使用did和will通知Delegate已经发生的变化或将要发生的变化,</li>
 </ul>
-<p>| 例子:  a.-(NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath;<br>        b.-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath; |<br>| — | — |</p>
+<p>例子:<br>a.-(NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath;<br>b.-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath; </p>
 <p><strong>2. 私有方法及变量声明</strong></p>
 <p><strong>2.1 声明位置</strong></p>
 <ul>
 <li>在.m文件中最上方，定义空的category进行声明</li>
 </ul>
-<p>| 例子:  #import &quot;CodeStandardViewController.h&quot;<br>// 在这个category（类目）中定义变量和方法<br>@interface CodeStandardViewController (){ // 声明私有变量  }<br>// 私有方法  </p>
+<p>例子:  </p>
+<p>#import &quot;CodeStandardViewController.h&quot;<br>// 在这个category（类目）中定义变量和方法<br>@interface CodeStandardViewController (){ // 声明私有变量  }<br>// 私有方法  </p>
 <ul>
 <li>(void)samplePrivateMethod;<br>@end<br>@implementation CodeStandardViewController<br>// 私有方法的实现  </li>
-<li>(void)samplePrivateMethod  { //some code  } |<br>| — | — |</li>
+<li>(void)samplePrivateMethod  { //some code  } </li>
 </ul>
 <p><strong>3.关于注释</strong></p>
 <p>最好的代码是不需要注释的 尽量通过合理的命名</p>
@@ -616,7 +617,7 @@
 </tbody>
 </table>
 <p><strong>3.2 方法声明注释</strong></p>
-<p>| /** * @brief 登录验证**<br>@param personId 用户名*<br>@param password 密码*<br>@param complete 执行完毕的block**<br>@return*/+ (void)loginWithPersonId:(NSString *)personId password:(NSString *)password complete:(void (^)(CheckLogon *result))complete; |<br>| — | — |</p>
+<p>/** * @brief 登录验证**<br>@param personId 用户名*<br>@param password 密码*<br>@param complete 执行完毕的block**<br>@return*/+ (void)loginWithPersonId:(NSString *)personId password:(NSString *)password complete:(void (^)(CheckLogon *result))complete; </p>
 <p><strong>4.关于UI布局</strong></p>
 <p>使用Interface Builder进行界面布局</p>
 <p>Xib文件的命名与其对应的.h文件保持相同</p>
@@ -675,16 +676,17 @@
 <ul>
 <li>Method与Method之间空一行</li>
 </ul>
-<p>| 例子:  #pragma mark - private methods  </p>
+<p>例子:  #pragma mark - private methods  </p>
 <ul>
 <li>(void)samplePrivateMethod  {…}     </li>
-<li>(void)sampleForIf  {…} |<br>| — | — |</li>
+<li>(void)sampleForIf  {…} </li>
 </ul>
 <p><strong>5.4 对method进行分组</strong></p>
 <ul>
 <li>使用 #pragma mark - 方式对类的方法进行分组</li>
 </ul>
-<p>| 例子:  #pragma mark - private methods  </p>
+<p>例子:  </p>
+<p>#pragma mark - private methods  </p>
 <ul>
 <li>(void)samplePrivateMethod  {…}     </li>
 <li>(void)sampleForIf  {…}     </li>
@@ -694,17 +696,19 @@
 <li>(void)samplePublicMethodWithParam:(NSString*)sampleParam  {…}<br>#pragma mark - life cycle methods  </li>
 <li>(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil  {…}     </li>
 <li>(void)viewDidLoad  {…}     </li>
-<li>(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation  {…} |<br>| — | — |</li>
+<li>(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation  {…} </li>
 </ul>
 <p><strong>5.5 大括号写法</strong></p>
 <ul>
-<li>对于类的method: 左括号另起一行写(遵循苹果官方文档)</li>
+<li><p>对于类的method: 左括号另起一行写(遵循苹果官方文档)</p>
+</li>
+<li><p>(id)initWithNibName:(NSString *)nibNameOrNilbundle:(NSBundle *)nibBundleOrNil  {<br>  self = [super initWithNibName:nibNameOrNil      bundle:nibBundleOrNil];<br>  if (self) {   // Custom initialization      }<br>  return self;<br>  } </p>
+</li>
 </ul>
-<p>| - (id)initWithNibName:(NSString *)nibNameOrNilbundle:(NSBundle *)nibBundleOrNil  {<br>    self = [super initWithNibName:nibNameOrNil      bundle:nibBundleOrNil];<br>    if (self) {   // Custom initialization      }<br>    return self;<br>    } |<br>| — | — |</p>
 <ul>
 <li>对于其他使用场景: 左括号跟在第一行后边</li>
 </ul>
-<p>| 例子：  - (void)sampleForIf  {<br>    BOOL someCondition = YES;<br>    if(someCondition) {          // do something here      }  }     </p>
+<p>例子：  - (void)sampleForIf  {<br>    BOOL someCondition = YES;<br>    if(someCondition) {          // do something here      }  }     </p>
 <pre><code>- (void)sampleForWhile  {      
     int i = 0;      
     while (i &amp;lt; 10) {          
@@ -717,12 +721,9 @@
                 caseSampleEnumTwo:{          // do something          break;      }      
                 default:{          NSLog(@&amp;quot;WARNING: there is an enum type not handled properly!&amp;quot;);          
                 break;     
-                 }  } |
-</code></pre><p>| — | — |</p>
-<ul>
-<li>任何需要写大括号的部分，不得省略</li>
-</ul>
-<p>| 错误示例:   - (void)wrongExamples   {<br>    BOOLsomeCondition = YES;<br>    if (someCondition)<br>    NSLog(@&quot;this is wrong!!!&quot;);<br>    while(someCondition)<br>    NSLog(@&quot;this is wrong!!!&quot;);<br>    } |<br>| — | — |</p>
+                 }  } 
+</code></pre><p> 任何需要写大括号的部分，不得省略</p>
+<p>  错误示例:   - (void)wrongExamples   {<br>    BOOLsomeCondition = YES;<br>    if (someCondition)<br>    NSLog(@&quot;this is wrong!!!&quot;);<br>    while(someCondition)<br>    NSLog(@&quot;this is wrong!!!&quot;);<br>    } </p>
 
       
     </div>
