@@ -45,6 +45,29 @@
     </entry>
     
     <entry>
+      <title>iOS － 沙盒机制（SandBox)和获取沙盒路径</title>
+      <link href="/2018/02/06/iOS%20-%20%E9%9B%86%E6%88%90Bundle%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E5%8C%85/"/>
+      <url>/2018/02/06/iOS%20-%20%E9%9B%86%E6%88%90Bundle%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E5%8C%85/</url>
+      <content type="html"><![CDATA[<p>iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。</p><h2 id="沙盒机制简介"><a href="#沙盒机制简介" class="headerlink" title="沙盒机制简介"></a><strong>沙盒机制简介</strong></h2><p>沙盒简述：</p><p>1，每一个APP都有一个存储空间，就是沙盒。</p><p>2，APP之间不能相互通信。</p><p>3，沙盒根目录结构：Documents、Library、temp。</p><p>简述一下Documents、Library、temp的区别：</p><p>1，Documents：用于存储用户数据，iTunes备份和恢复的时候会包括此目录，所以，苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下。</p><p>2，Library：包含两个子目录：Caches和Preferences。Caches用来存放用户需要换成的文件。Preferences是APP的偏好设置，可以通过NSUserDefaults来读取和设置。</p><p>3，tmp：用于存放临时文件，这个可以放一些当APP退出后不再需要的文件。</p><h2 id="打开模拟器沙盒方法"><a href="#打开模拟器沙盒方法" class="headerlink" title="打开模拟器沙盒方法"></a><strong>打开模拟器沙盒方法</strong></h2><p>方法一：前往文件夹打开</p><p>/Users/ligang/Library/Application Support/iPhone Simulator/</p><p>直接在Finder-&gt;前往-&gt;前往文件夹，输入上面的内容即可。记住将ligang换成你的电脑用户名。</p><p>方法二：通过Finder一步步查找</p><p>模拟器上的APP的沙盒实在用户目录下的资源库里面，但是资源库是隐藏文件夹。所以查看沙盒之前，现将隐藏文件夹显示出来。显示隐藏文件的命令：</p><p>defaults write com.apple.finder AppleShowAllFiles -bool true</p><p>用心的童鞋会发现，隐藏隐藏文件的命令：</p><p>defaults write com.apple.finder AppleShowAllFiles -bool false</p><p>如何获取Documents、Library、tmp的路径？</p><h2 id="获取沙盒根目录"><a href="#获取沙盒根目录" class="headerlink" title="获取沙盒根目录"></a><strong>获取沙盒根目录</strong></h2><p>获取沙盒根目录，直接调用NSHomeDirectory()：</p><p>//获取沙盒根目录</p><p>NSString*directory=NSHomeDirectory();</p><p>NSLog(@&quot;directory:%@&quot;,directory);</p><p>控制台输出：</p><p>2017-05-10 09:23:57.708447+0800 VideoClip[408:70903] directory:/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C</p><p>这个是真机的路径，大家有时间的话可以看看模拟器的根目录路径。</p><h2 id="获取Documents路径"><a href="#获取Documents路径" class="headerlink" title="获取Documents路径"></a><strong>获取Documents路径</strong></h2><p>获取Documents路径如下：</p><p>//获取Documents路径</p><p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);</p><p>NSString*path=[pathsobjectAtIndex:0];</p><p>NSLog(@&quot;path:%@&quot;,path);</p><p>控制台输出：</p><p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Documents</p><p>获取Documents文件夹目录,第一个参数是说明获取Doucments文件夹目录，第二个参数说明是在当前应用沙盒中获取。</p><h2 id="获取Library路径"><a href="#获取Library路径" class="headerlink" title="获取Library路径"></a><strong>获取Library路径</strong></h2><p>//获取Library路径</p><p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES);</p><p>NSString*path=[pathsobjectAtIndex:0];</p><p>NSLog(@&quot;path：%@&quot;,path);</p><p>控制台输出：</p><p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library</p><h2 id="获取Caches路径"><a href="#获取Caches路径" class="headerlink" title="获取Caches路径"></a><strong>获取Caches路径</strong></h2><p>//获取Caches路径</p><p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);</p><p>NSString*path=[pathsobjectAtIndex:0];</p><p>NSLog(@&quot;path：%@&quot;,path);</p><p>控制台输出：</p><p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library/Caches</p><h2 id="获取-tmp-路径"><a href="#获取-tmp-路径" class="headerlink" title="获取** tmp **路径"></a><strong>获取**</strong> tmp <strong>**路径</strong></h2><p>NSString*tmp=NSTemporaryDirectory();</p><p>NSLog(@&quot;tmp：%@&quot;,tmp);</p><p>控制台输出：</p><p>2017-05-10 09:23:57.709190+0800 VideoClip[408:70903] tmp:/private/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C/tmp/</p><p>以上是iOS开发中获取沙盒路径的方法。</p><p>iOS 简单的存储和读取 本地图片 适用于 用户头像</p><p>//存储图片到本地沙盒</p><ul><li><p>(void)saveImage:(UIImage *)image{</p><p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p><p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p><p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p><p>  NSData *data = UIImageJPEGRepresentation(image, 0.1);</p><p>  [data writeToFile:filePath atomically:YES];</p></li></ul><p>}</p><p>//获取本地沙盒存储的图片</p><ul><li><p>(UIImage *)loadImage{</p><p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p><p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p><p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p><p>  NSFileManager *fm = [NSFileManager defaultManager];</p><p>  if ([fm fileExistsAtPath:filePath]) {</p><pre><code>NSData \* data = [NSData dataWithContentsOfFile:filePath];UIImage \*image = [UIImage imageWithData:data];return image;</code></pre><p>  }</p><p>  return nil;</p></li></ul><p>}</p>]]></content>
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> SandBox </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>iOS - 开发代码部分规范</title>
       <link href="/2018/02/02/iOS%20-%20%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86%E8%A7%84%E8%8C%83/"/>
       <url>/2018/02/02/iOS%20-%20%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86%E8%A7%84%E8%8C%83/</url>
