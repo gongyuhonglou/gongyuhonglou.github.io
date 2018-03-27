@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS,SandBox," />
+  <meta name="keywords" content="Swift," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
-<meta name="keywords" content="iOS,SandBox">
+<meta name="description" content="苹果官方Swift文档《 The Swift Programming Language》  苹果开 发 者 Swift 文档及介 绍 网友整理的Swift中文文档《  Apple Swift 编程语言入门教程》 中文版 Apple 官方 Swift 教程（ Github 协作翻译中） Apple Swift 编程语言入门教程 Swift 语言概览中文版 Swift 英文文档 markdown 版">
+<meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS － 沙盒机制（SandBox)和获取沙盒路径">
-<meta property="og:url" content="https://gongyuhonglou.github.io/2018/02/06/iOS - 集成Bundle资源文件包/index.html">
+<meta property="og:title" content="Swift - 开源框架总结">
+<meta property="og:url" content="https://gongyuhonglou.github.io/Swift - 开源框架总结.html">
 <meta property="og:site_name" content="公羽红楼">
-<meta property="og:description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
+<meta property="og:description" content="苹果官方Swift文档《 The Swift Programming Language》  苹果开 发 者 Swift 文档及介 绍 网友整理的Swift中文文档《  Apple Swift 编程语言入门教程》 中文版 Apple 官方 Swift 教程（ Github 协作翻译中） Apple Swift 编程语言入门教程 Swift 语言概览中文版 Swift 英文文档 markdown 版">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T03:07:56.000Z">
+<meta property="og:updated_time" content="2018-03-22T08:07:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS － 沙盒机制（SandBox)和获取沙盒路径">
-<meta name="twitter:description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
+<meta name="twitter:title" content="Swift - 开源框架总结">
+<meta name="twitter:description" content="苹果官方Swift文档《 The Swift Programming Language》  苹果开 发 者 Swift 文档及介 绍 网友整理的Swift中文文档《  Apple Swift 编程语言入门教程》 中文版 Apple 官方 Swift 教程（ Github 协作翻译中） Apple Swift 编程语言入门教程 Swift 语言概览中文版 Swift 英文文档 markdown 版">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://gongyuhonglou.github.io/2018/02/06/iOS - 集成Bundle资源文件包/"/>
+  <link rel="canonical" href="https://gongyuhonglou.github.io/Swift - 开源框架总结.html"/>
 
 
 
 
 
-  <title>iOS － 沙盒机制（SandBox)和获取沙盒路径 | 公羽红楼</title>
+  <title>Swift - 开源框架总结 | 公羽红楼</title>
   
 
 
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/2018/02/06/iOS - 集成Bundle资源文件包/">
+    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/Swift - 开源框架总结.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Franks Weng">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS － 沙盒机制（SandBox)和获取沙盒路径</h1>
+          <h1 class="post-title" itemprop="name headline">Swift - 开源框架总结</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T23:23:23+08:00">
-                2018-02-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T23:23:23+08:00">
+                2018-03-03
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
                   </a>
                 </span>
 
@@ -355,86 +355,88 @@
       
 
       
-        <p>iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。</p>
-<h2 id="沙盒机制简介"><a href="#沙盒机制简介" class="headerlink" title="沙盒机制简介"></a><strong>沙盒机制简介</strong></h2><p>沙盒简述：</p>
-<p>1，每一个APP都有一个存储空间，就是沙盒。</p>
-<p>2，APP之间不能相互通信。</p>
-<p>3，沙盒根目录结构：Documents、Library、temp。</p>
-<p>简述一下Documents、Library、temp的区别：</p>
-<p>1，Documents：用于存储用户数据，iTunes备份和恢复的时候会包括此目录，所以，苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下。</p>
-<p>2，Library：包含两个子目录：Caches和Preferences。Caches用来存放用户需要换成的文件。Preferences是APP的偏好设置，可以通过NSUserDefaults来读取和设置。</p>
-<p>3，tmp：用于存放临时文件，这个可以放一些当APP退出后不再需要的文件。</p>
-<h2 id="打开模拟器沙盒方法"><a href="#打开模拟器沙盒方法" class="headerlink" title="打开模拟器沙盒方法"></a><strong>打开模拟器沙盒方法</strong></h2><p>方法一：前往文件夹打开</p>
-<p>/Users/ligang/Library/Application Support/iPhone Simulator/</p>
-<p>直接在Finder-&gt;前往-&gt;前往文件夹，输入上面的内容即可。记住将ligang换成你的电脑用户名。</p>
-<p>方法二：通过Finder一步步查找</p>
-<p>模拟器上的APP的沙盒实在用户目录下的资源库里面，但是资源库是隐藏文件夹。所以查看沙盒之前，现将隐藏文件夹显示出来。显示隐藏文件的命令：</p>
-<p>defaults write com.apple.finder AppleShowAllFiles -bool true</p>
-<p>用心的童鞋会发现，隐藏隐藏文件的命令：</p>
-<p>defaults write com.apple.finder AppleShowAllFiles -bool false</p>
-<p>如何获取Documents、Library、tmp的路径？</p>
-<h2 id="获取沙盒根目录"><a href="#获取沙盒根目录" class="headerlink" title="获取沙盒根目录"></a><strong>获取沙盒根目录</strong></h2><p>获取沙盒根目录，直接调用NSHomeDirectory()：</p>
-<p>//获取沙盒根目录</p>
-<p>NSString*directory=NSHomeDirectory();</p>
-<p>NSLog(@&quot;directory:%@&quot;,directory);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708447+0800 VideoClip[408:70903] directory:/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C</p>
-<p>这个是真机的路径，大家有时间的话可以看看模拟器的根目录路径。</p>
-<h2 id="获取Documents路径"><a href="#获取Documents路径" class="headerlink" title="获取Documents路径"></a><strong>获取Documents路径</strong></h2><p>获取Documents路径如下：</p>
-<p>//获取Documents路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path:%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Documents</p>
-<p>获取Documents文件夹目录,第一个参数是说明获取Doucments文件夹目录，第二个参数说明是在当前应用沙盒中获取。</p>
-<h2 id="获取Library路径"><a href="#获取Library路径" class="headerlink" title="获取Library路径"></a><strong>获取Library路径</strong></h2><p>//获取Library路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path：%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library</p>
-<h2 id="获取Caches路径"><a href="#获取Caches路径" class="headerlink" title="获取Caches路径"></a><strong>获取Caches路径</strong></h2><p>//获取Caches路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path：%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library/Caches</p>
-<h2 id="获取-tmp-路径"><a href="#获取-tmp-路径" class="headerlink" title="获取** tmp **路径"></a><strong>获取**</strong> tmp <strong>**路径</strong></h2><p>NSString*tmp=NSTemporaryDirectory();</p>
-<p>NSLog(@&quot;tmp：%@&quot;,tmp);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.709190+0800 VideoClip[408:70903] tmp:/private/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C/tmp/</p>
-<p>以上是iOS开发中获取沙盒路径的方法。</p>
-<p>iOS 简单的存储和读取 本地图片 适用于 用户头像</p>
-<p>//存储图片到本地沙盒</p>
+        <p>苹果官方Swift文档《 <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id881256329?mt=11" target="_blank" rel="noopener">The Swift Programming Language</a>》</p>
 <ul>
-<li><p>(void)saveImage:(UIImage *)image{</p>
-<p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p>
-<p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p>
-<p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p>
-<p>  NSData *data = UIImageJPEGRepresentation(image, 0.1);</p>
-<p>  [data writeToFile:filePath atomically:YES];</p>
+<li><a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">苹果开</a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">发</a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">者</a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">Swift</a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">文档及介</a> <a href="https://developer.apple.com/swift/" target="_blank" rel="noopener">绍</a></li>
+<li>网友整理的Swift中文文档《  <a href="http://gashero.iteye.com/blog/2075324" target="_blank" rel="noopener">Apple Swift</a> <a href="http://gashero.iteye.com/blog/2075324" target="_blank" rel="noopener">编程语言入门教程</a>》 <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">中文版</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">Apple</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">官方</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">Swift</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">教程（</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">Github</a> <a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">协作翻译中）</a></li>
+<li><a href="http://swiftlang.com.cn/start/" target="_blank" rel="noopener">Apple Swift</a> <a href="http://swiftlang.com.cn/start/" target="_blank" rel="noopener">编程语言入门教程</a></li>
+<li><a href="http://blog.jobbole.com/69948/#comment-50349" target="_blank" rel="noopener">Swift</a> <a href="http://blog.jobbole.com/69948/#comment-50349" target="_blank" rel="noopener">语言概览中文版</a></li>
+<li><a href="https://code.csdn.net/theSalt/swift" target="_blank" rel="noopener">Swift</a> <a href="https://code.csdn.net/theSalt/swift" target="_blank" rel="noopener">英文文档</a> <a href="https://code.csdn.net/theSalt/swift" target="_blank" rel="noopener">markdown</a> <a href="https://code.csdn.net/theSalt/swift" target="_blank" rel="noopener">版</a></li>
+<li><a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">Swift</a> <a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">开</a> <a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">发视频</a> <a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">教程【入</a> <a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">门</a> <a href="http://edu.51cto.com/course/course_id-1387.html#6720061-tsina-1-89686-beb47058ad4ce5a6b43f97ee91cac13a" target="_blank" rel="noopener">篇】</a></li>
+<li><p><a href="http://letsswift.com/" target="_blank" rel="noopener">letsswift</a> <a href="http://letsswift.com/" target="_blank" rel="noopener">编译的</a> <a href="http://letsswift.com/" target="_blank" rel="noopener">Swift</a> <a href="http://letsswift.com/" target="_blank" rel="noopener">中文教程</a></p>
 </li>
+<li><p><a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">Github</a> <a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">上的</a> <a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">Swift</a> <a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">开源</a> <a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">项</a> <a href="https://github.com/search?l=Swift&amp;p=1&amp;q=swift&amp;ref=cmdform&amp;type=Repositories" target="_blank" rel="noopener">目列表</a></p>
+</li>
+<li>国内第一个Swift社区： <a href="http://swift.sh/" target="_blank" rel="noopener">http://swift.sh/</a></li>
 </ul>
-<p>}</p>
-<p>//获取本地沙盒存储的图片</p>
+<p>&quot;轮子&quot;工具类</p>
 <ul>
-<li><p>(UIImage *)loadImage{</p>
-<p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p>
-<p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p>
-<p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p>
-<p>  NSFileManager *fm = [NSFileManager defaultManager];</p>
-<p>  if ([fm fileExistsAtPath:filePath]) {</p>
-<pre><code>NSData \* data = [NSData dataWithContentsOfFile:filePath];
-
-UIImage \*image = [UIImage imageWithData:data];
-
-return image;
-</code></pre><p>  }</p>
-<p>  return nil;</p>
-</li>
+<li><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a>：GitHub上最为开发者认可的JSON解析类</li>
+<li><a href="https://github.com/ankurp/Dollar.swift" target="_blank" rel="noopener">swift</a>：Swift版Lo-Dash(或underscore)函数式工具库</li>
+<li><a href="https://github.com/dongri/OAuthSwift" target="_blank" rel="noopener">OAuthSwift</a>：国外主流网站OAuth授权类库</li>
+<li><a href="https://github.com/kylef/PathKit" target="_blank" rel="noopener">PathKit</a>：小而美的路径管理类</li>
+<li><a href="https://github.com/DaveWoodCom/XCGLogger" target="_blank" rel="noopener">XCGLogger</a>：功能完整的日志管理类库</li>
+<li><a href="https://github.com/mattt/Surge" target="_blank" rel="noopener">Surge</a>：基于苹果Accelerate高性能计算框架封装库</li>
+<li><a href="https://github.com/duemunk/Async" target="_blank" rel="noopener">Async</a>：简洁的后台执行代码封装库</li>
+<li><a href="https://github.com/mattt/Euler" target="_blank" rel="noopener">Euler</a>：直观、简洁的数学表达式∛27÷3+∑[3,1,2]</li>
+<li><a href="https://github.com/varshylmobile/LocationManager" target="_blank" rel="noopener">LocationManager</a>：地理位置管理封装库</li>
+<li><a href="https://github.com/ArtSabintsev/Siren" target="_blank" rel="noopener">Siren</a>：当应用更新时，通知用户并提供App Store链接</li>
+<li><a href="https://github.com/Thomvis/BrightFutures" target="_blank" rel="noopener">BrightFutures</a>：漫长或复杂计算由独立线程异步来完成</li>
 </ul>
-<p>}</p>
+<p>存储类</p>
+<ul>
+<li><a href="https://github.com/stephencelis/SQLite.swift" target="_blank" rel="noopener">swift</a>：简单、轻量，使用上最SQL的SQLite封装库</li>
+<li><a href="https://github.com/realm/realm-cocoa" target="_blank" rel="noopener">Realm</a>：志向代替Core Data和SQLite的移动数据库</li>
+</ul>
+<p>网络类</p>
+<ul>
+<li><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a>：著名的AFNetworking网络基础库Swift语言版</li>
+<li><a href="https://github.com/daltoniam/starscream" target="_blank" rel="noopener">starscream</a>：WebSocket客户端类库</li>
+</ul>
+<p>图片类</p>
+<ul>
+<li><a href="https://github.com/kaishin/ImageScout" target="_blank" rel="noopener">ImageScout</a>：最小网络代价获得图片大小及类型</li>
+<li><a href="https://github.com/indragiek/DominantColor" target="_blank" rel="noopener">DominantColor</a>：提取图片主色示例项目</li>
+<li><a href="https://github.com/gavinbunney/Toucan" target="_blank" rel="noopener">Toucan</a>：小而美的图片变换及处理类</li>
+<li><a href="https://github.com/kaishin/gifu" target="_blank" rel="noopener">gifu</a>：高性能GIF显示类库</li>
+<li><a href="https://github.com/Haneke/HanekeSwift" target="_blank" rel="noopener">HanekeSwift</a>：轻量带缓存高性能图片加载组件</li>
+</ul>
+<p>界面类</p>
+<ul>
+<li><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="noopener">animated-tab-bar</a>：灵动的动画标签栏类库，storyboard中使用</li>
+<li><a href="https://github.com/ortuman/SwiftForms" target="_blank" rel="noopener">SwiftForms</a>：表单递交库，快速开发利器</li>
+<li><a href="https://github.com/ariok/BWWalkthrough" target="_blank" rel="noopener">BWWalkthrough</a>：界面切换中加入灵动的动画效果</li>
+<li><a href="https://github.com/kevinzhow/PNChart-Swift" target="_blank" rel="noopener">PNChart-Swift</a>：带动画效果的图表控件库</li>
+<li><a href="https://github.com/codestergit/SweetAlert-iOS" target="_blank" rel="noopener">SweetAlert-iOS</a>：带动画效果弹窗封装类</li>
+<li><a href="https://github.com/Ramotion/animated-tab-bar" target="_blank" rel="noopener">AnimatedTabBar</a>：灵动的动画标签栏类库</li>
+<li><a href="https://github.com/kentya6/KYCircularProgress" target="_blank" rel="noopener">KYCircularProgress</a>：简单、实用路径可定进程条</li>
+<li><a href="https://github.com/FahimF/FloatLabelFields" target="_blank" rel="noopener">FloatLabelFields</a>：Float Label Pattern浮动标签输入效果类</li>
+<li><a href="https://github.com/varshylmobile/MapManager" target="_blank" rel="noopener">MapManager</a>：地图及路径管理封装库</li>
+</ul>
+<p>框架类</p>
+<ul>
+<li><a href="https://github.com/facebook/AsyncDisplayKit" target="_blank" rel="noopener">AsyncDisplayKit</a>：提供界面的高流畅性切换及更灵敏的响应</li>
+<li><a href="https://github.com/robb/Cartography" target="_blank" rel="noopener">Cartography</a>：基于代码级的自动布局封装框架</li>
+<li><a href="https://github.com/mutualmobile/MMWormhole" target="_blank" rel="noopener">MMWormhole</a>：iOS扩展与宿主应用的通讯框架</li>
+<li><a href="https://github.com/colemancda/NetworkObjects" target="_blank" rel="noopener">NetworkObjects</a>：轻量版HttpServer框架，跨平台解决方案</li>
+</ul>
+<p>&quot;车子&quot;示例项目</p>
+<ul>
+<li><a href="https://github.com/lexrus/LTMorphingLabel" target="_blank" rel="noopener">LTMorphingLabel</a>：特赞的文字飘入飘出效果</li>
+<li><a href="https://github.com/tadija/AEXML" target="_blank" rel="noopener">AEXML</a>：简单又易于的XML解析类及示例</li>
+<li><a href="https://github.com/victor/whereami" target="_blank" rel="noopener">whereami</a>：通过命令行获得当前设备地理位置</li>
+<li><a href="https://github.com/ochococo/Design-Patterns-In-Swift" target="_blank" rel="noopener">Design-Patterns</a>：如何使用常用设计模式及示例</li>
+<li><a href="https://github.com/robb/hamburger-button" target="_blank" rel="noopener">HamburgerButton-Menu/Close</a>：无论 <a href="http://robb.is/working-on/a-hamburger-button-transition/" target="_blank" rel="noopener">设计</a>还是代码，都进行了精雕细琢</li>
+<li><a href="https://github.com/fastred/HamburgerButton" target="_blank" rel="noopener">HamburgerButton-Menu/Back</a>：对应 <a href="http://holko.pl/2014/07/15/hamburger-button-animation/" target="_blank" rel="noopener">博文</a>可知，开发者动画开发经验相当丰富</li>
+</ul>
+<p>完整应用</p>
+<p>-</p>
+<ul>
+<li><a href="https://github.com/tnantoka/edhita" target="_blank" rel="noopener">edhita</a>：支持Markdown, HTML预览的文本编辑器</li>
+<li><a href="https://github.com/mozilla/firefox-ios" target="_blank" rel="noopener">firefox-ios</a>：来自Mozilla开发团队大型纯Swift项目</li>
+<li><a href="https://github.com/JakeLin/SwiftWeather" target="_blank" rel="noopener">SwiftWeather</a>：清新淡雅持续改进天气预报项目</li>
+<li><a href="https://github.com/lexrus/VPNOn" target="_blank" rel="noopener">VPNOn</a>：驻在通知中心内的VPN开关应用</li>
+</ul>
 
       
     </div>
@@ -452,9 +454,7 @@ return image;
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
-          
-            <a href="/tags/SandBox/" rel="tag"><i class="fa fa-tag"></i> SandBox</a>
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
           
         </div>
       
@@ -467,8 +467,8 @@ return image;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/02/iOS - 开发代码部分规范/" rel="next" title="iOS - 开发代码部分规范">
-                <i class="fa fa-chevron-left"></i> iOS - 开发代码部分规范
+              <a href="/iOS - 集成Bundle资源文件包.html" rel="next" title="iOS － 沙盒机制（SandBox)和获取沙盒路径">
+                <i class="fa fa-chevron-left"></i> iOS － 沙盒机制（SandBox)和获取沙盒路径
               </a>
             
           </div>
@@ -477,8 +477,8 @@ return image;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/03/Swift - 开源框架总结/" rel="prev" title="Swift - 开源框架总结">
-                Swift - 开源框架总结 <i class="fa fa-chevron-right"></i>
+              <a href="/Python - 3.6 学习(1).html" rel="prev" title="Python - 3.6 学习(1)">
+                Python - 3.6 学习(1) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -531,17 +531,8 @@ return image;
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,22 +625,6 @@ return image;
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#沙盒机制简介"><span class="nav-number">1.</span> <span class="nav-text">沙盒机制简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开模拟器沙盒方法"><span class="nav-number">2.</span> <span class="nav-text">打开模拟器沙盒方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取沙盒根目录"><span class="nav-number">3.</span> <span class="nav-text">获取沙盒根目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Documents路径"><span class="nav-number">4.</span> <span class="nav-text">获取Documents路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Library路径"><span class="nav-number">5.</span> <span class="nav-text">获取Library路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Caches路径"><span class="nav-number">6.</span> <span class="nav-text">获取Caches路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-tmp-路径"><span class="nav-number">7.</span> <span class="nav-text">获取** tmp **路径</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
