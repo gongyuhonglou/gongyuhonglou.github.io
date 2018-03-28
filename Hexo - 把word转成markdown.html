@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="iOS,SandBox," />
+  <meta name="keywords" content="Hexo,markdown," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
-<meta name="keywords" content="iOS,SandBox">
+<meta name="description" content="因为想用markdown写Hexo+Github发布博客（[我的个人静态博客]{.underline}），而我的文档是word写的。 方案目前只研究了Mac下的方案：  [word-to-markdown]{.underline}，google用wordtomarkdown搜出来第一个，看来这个名字起得好。用这个的话得装个[LibreOffice]{.underline}  [pandoc]{.">
+<meta name="keywords" content="Hexo,markdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS － 沙盒机制（SandBox)和获取沙盒路径">
-<meta property="og:url" content="https://gongyuhonglou.github.io/iOS - 集成Bundle资源文件包.html">
+<meta property="og:title" content="Hexo - 把word转成markdown">
+<meta property="og:url" content="https://gongyuhonglou.github.io/Hexo - 把word转成markdown.html">
 <meta property="og:site_name" content="公羽红楼">
-<meta property="og:description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
+<meta property="og:description" content="因为想用markdown写Hexo+Github发布博客（[我的个人静态博客]{.underline}），而我的文档是word写的。 方案目前只研究了Mac下的方案：  [word-to-markdown]{.underline}，google用wordtomarkdown搜出来第一个，看来这个名字起得好。用这个的话得装个[LibreOffice]{.underline}  [pandoc]{.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T03:07:56.000Z">
+<meta property="og:updated_time" content="2018-03-28T08:35:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS － 沙盒机制（SandBox)和获取沙盒路径">
-<meta name="twitter:description" content="iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。 沙盒机制简介沙盒简述： 1，每一个APP都有一个存储空间，就是沙盒。 2，APP之间不能相互通信。 3，沙盒根目录结构：Documents、Library、temp。 简述一下Docu">
+<meta name="twitter:title" content="Hexo - 把word转成markdown">
+<meta name="twitter:description" content="因为想用markdown写Hexo+Github发布博客（[我的个人静态博客]{.underline}），而我的文档是word写的。 方案目前只研究了Mac下的方案：  [word-to-markdown]{.underline}，google用wordtomarkdown搜出来第一个，看来这个名字起得好。用这个的话得装个[LibreOffice]{.underline}  [pandoc]{.">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://gongyuhonglou.github.io/iOS - 集成Bundle资源文件包.html"/>
+  <link rel="canonical" href="https://gongyuhonglou.github.io/Hexo - 把word转成markdown.html"/>
 
 
 
 
 
-  <title>iOS － 沙盒机制（SandBox)和获取沙盒路径 | 公羽红楼</title>
+  <title>Hexo - 把word转成markdown | 公羽红楼</title>
   
 
 
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/iOS - 集成Bundle资源文件包.html">
+    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/Hexo - 把word转成markdown.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Franks Weng">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS － 沙盒机制（SandBox)和获取沙盒路径</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo - 把word转成markdown</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T23:23:23+08:00">
-                2018-02-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T22:22:22+08:00">
+                2018-02-22
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
                   </a>
                 </span>
 
@@ -355,86 +355,117 @@
       
 
       
-        <p>iOSAPP可以在自己的沙盒里读写文件，但是，不可以访问其他APP的沙盒。每一个APP都是一个信息孤岛，相互是不可以进行通信的，唯独可以通过URLScheme。沙盒里面的文件可以是照片、声音文件、文本、属性列表等。</p>
-<h2 id="沙盒机制简介"><a href="#沙盒机制简介" class="headerlink" title="沙盒机制简介"></a><strong>沙盒机制简介</strong></h2><p>沙盒简述：</p>
-<p>1，每一个APP都有一个存储空间，就是沙盒。</p>
-<p>2，APP之间不能相互通信。</p>
-<p>3，沙盒根目录结构：Documents、Library、temp。</p>
-<p>简述一下Documents、Library、temp的区别：</p>
-<p>1，Documents：用于存储用户数据，iTunes备份和恢复的时候会包括此目录，所以，苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下。</p>
-<p>2，Library：包含两个子目录：Caches和Preferences。Caches用来存放用户需要换成的文件。Preferences是APP的偏好设置，可以通过NSUserDefaults来读取和设置。</p>
-<p>3，tmp：用于存放临时文件，这个可以放一些当APP退出后不再需要的文件。</p>
-<h2 id="打开模拟器沙盒方法"><a href="#打开模拟器沙盒方法" class="headerlink" title="打开模拟器沙盒方法"></a><strong>打开模拟器沙盒方法</strong></h2><p>方法一：前往文件夹打开</p>
-<p>/Users/ligang/Library/Application Support/iPhone Simulator/</p>
-<p>直接在Finder-&gt;前往-&gt;前往文件夹，输入上面的内容即可。记住将ligang换成你的电脑用户名。</p>
-<p>方法二：通过Finder一步步查找</p>
-<p>模拟器上的APP的沙盒实在用户目录下的资源库里面，但是资源库是隐藏文件夹。所以查看沙盒之前，现将隐藏文件夹显示出来。显示隐藏文件的命令：</p>
-<p>defaults write com.apple.finder AppleShowAllFiles -bool true</p>
-<p>用心的童鞋会发现，隐藏隐藏文件的命令：</p>
-<p>defaults write com.apple.finder AppleShowAllFiles -bool false</p>
-<p>如何获取Documents、Library、tmp的路径？</p>
-<h2 id="获取沙盒根目录"><a href="#获取沙盒根目录" class="headerlink" title="获取沙盒根目录"></a><strong>获取沙盒根目录</strong></h2><p>获取沙盒根目录，直接调用NSHomeDirectory()：</p>
-<p>//获取沙盒根目录</p>
-<p>NSString*directory=NSHomeDirectory();</p>
-<p>NSLog(@&quot;directory:%@&quot;,directory);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708447+0800 VideoClip[408:70903] directory:/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C</p>
-<p>这个是真机的路径，大家有时间的话可以看看模拟器的根目录路径。</p>
-<h2 id="获取Documents路径"><a href="#获取Documents路径" class="headerlink" title="获取Documents路径"></a><strong>获取Documents路径</strong></h2><p>获取Documents路径如下：</p>
-<p>//获取Documents路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path:%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Documents</p>
-<p>获取Documents文件夹目录,第一个参数是说明获取Doucments文件夹目录，第二个参数说明是在当前应用沙盒中获取。</p>
-<h2 id="获取Library路径"><a href="#获取Library路径" class="headerlink" title="获取Library路径"></a><strong>获取Library路径</strong></h2><p>//获取Library路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path：%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library</p>
-<h2 id="获取Caches路径"><a href="#获取Caches路径" class="headerlink" title="获取Caches路径"></a><strong>获取Caches路径</strong></h2><p>//获取Caches路径</p>
-<p>NSArray*paths=NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);</p>
-<p>NSString*path=[pathsobjectAtIndex:0];</p>
-<p>NSLog(@&quot;path：%@&quot;,path);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.708754+0800 VideoClip[408:70903] path:/var/mobile/Containers/Data/Application/Library/Caches</p>
-<h2 id="获取-tmp-路径"><a href="#获取-tmp-路径" class="headerlink" title="获取** tmp **路径"></a><strong>获取**</strong> tmp <strong>**路径</strong></h2><p>NSString*tmp=NSTemporaryDirectory();</p>
-<p>NSLog(@&quot;tmp：%@&quot;,tmp);</p>
-<p>控制台输出：</p>
-<p>2017-05-10 09:23:57.709190+0800 VideoClip[408:70903] tmp:/private/var/mobile/Containers/Data/Application/CC60BE19-540C-43BE-9F9C-293A2A630C9C/tmp/</p>
-<p>以上是iOS开发中获取沙盒路径的方法。</p>
-<p>iOS 简单的存储和读取 本地图片 适用于 用户头像</p>
-<p>//存储图片到本地沙盒</p>
-<ul>
-<li><p>(void)saveImage:(UIImage *)image{</p>
-<p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p>
-<p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p>
-<p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p>
-<p>  NSData *data = UIImageJPEGRepresentation(image, 0.1);</p>
-<p>  [data writeToFile:filePath atomically:YES];</p>
+        <p> 因为想用markdown写Hexo+Github发布博客（<a href="https://gongyuhonglou.github.io/">[我的个人静态博客]{.underline}</a>），而我的文档是word写的。</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>目前只研究了Mac下的方案：</p>
+<ol>
+<li><p><a href="https://link.jianshu.com/?t=https://github.com/benbalter/word-to-markdown" target="_blank" rel="noopener">[word-to-markdown]{.underline}</a>，google用word<br>to<br>markdown搜出来第一个，看来这个名字起得好。用这个的话得装个<a href="https://link.jianshu.com/?t=https://www.libreoffice.org/download/libreoffice-fresh/" target="_blank" rel="noopener">[LibreOffice]{.underline}</a></p>
 </li>
-</ul>
-<p>}</p>
-<p>//获取本地沙盒存储的图片</p>
-<ul>
-<li><p>(UIImage *)loadImage{</p>
-<p>  NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndexWithCheck:0];</p>
-<p>  NSString *imageName = [NSString stringWithFormat:@&quot;%@HeadImage&quot;,[USERDEFAULT objectForKey:USERNAME]];</p>
-<p>  NSString *filePath = [[documentDirectory stringByAppendingPathComponent:@&quot;HeadImages&quot;] stringByAppendingString:imageName];</p>
-<p>  NSFileManager *fm = [NSFileManager defaultManager];</p>
-<p>  if ([fm fileExistsAtPath:filePath]) {</p>
-<pre><code>NSData \* data = [NSData dataWithContentsOfFile:filePath];
-
-UIImage \*image = [UIImage imageWithData:data];
-
-return image;
-</code></pre><p>  }</p>
-<p>  return nil;</p>
+<li><p><a href="https://link.jianshu.com/?t=http://pandoc.org/" target="_blank" rel="noopener">[pandoc]{.underline}</a>，这个就比较大名鼎鼎了</p>
 </li>
-</ul>
-<p>}</p>
+<li><p><a href="https://link.jianshu.com/?t=http://dag.wiee.rs/home-made/unoconv/" target="_blank" rel="noopener">[unoconv]{.underline}</a>，<a href="https://link.jianshu.com/?t=https://gist.github.com/vzvenyach/7278543" target="_blank" rel="noopener">[介绍]{.underline}</a></p>
+</li>
+</ol>
+<h3 id="首先尝试word-to-markdown"><a href="#首先尝试word-to-markdown" class="headerlink" title="首先尝试word-to-markdown"></a>首先尝试word-to-markdown</h3><p>我用google搜到的第一个就是这个了，当然要试试。</p>
+<h4 id="坑：Mac自带Ruby"><a href="#坑：Mac自带Ruby" class="headerlink" title="坑：Mac自带Ruby"></a>坑：Mac自带Ruby</h4><p>要玩gem，首先当然是上(Fan)套(Qiang)咯。连上vpn，然后：</p>
+<blockquote>
+<p>\$ gem install word-to-markdown</p>
+</blockquote>
+<p>你以为这么一句话就能搞定了吗，那可真就太天真了。撞到最后一个premailer开始报对gem文件夹没有权限的错误，查了查，其实就是Mac版自带ruby版本的问题，不允许随便装东西，即便有sudo也不让。</p>
+<p>网上的解决方案是开机安住CMD+R，把Integrity<br>Protection禁用，然后进系统装不能装的gem，然后再回去把它启用。这方案麻烦不说，其实还是在系统的gem库里加了也许就只会用那么一两次的不该加的东西，各种不安嘛，这方案明显不符合我的审美。</p>
+<h4 id="ok，那就rbenv走起吧"><a href="#ok，那就rbenv走起吧" class="headerlink" title="ok，那就rbenv走起吧"></a>ok，那就rbenv走起吧</h4><p>求助万能的谷哥，提供了两种选择，rbenv或者rvm，看了一下，貌似rbenv更加的handoff，而且提供Homebrew安装，那就选它了。</p>
+<blockquote>
+<p>\$ brew update</p>
+<p>\$ brew install rbenv</p>
+</blockquote>
+<p>然后官方说是要运行rbenv init，运行一下说把下面这行加到.zshrc里去�</p>
+<blockquote>
+<p>eval \”\$(rbenv init -)\”</p>
+</blockquote>
+<p>然后重启一下Terminal，</p>
+<blockquote>
+<p># 看看装了些啥版本，system就是系统自带的了</p>
+<p>\$ rbenv versions</p>
+<p># 然后看看当前的版本</p>
+<p>\$ rbenv version</p>
+<p># 看看能装哪些版本</p>
+<p>\$ rbenv install list</p>
+</blockquote>
+<p>最后随便选了个2.3.0（其实也不是随便选的，我这人就爱最新版，但2.4.0还在dev，就选这个次新版了）</p>
+<blockquote>
+<p>\$ rbenv install 2.3.0</p>
+<p>\$ rbenv global 2.3.0</p>
+</blockquote>
+<p>这样就把ruby命令替换成rbenv管理的版本了，各种gem<br>install也不会报什么权限错误啊操作不允许之类的了。</p>
+<h4 id="速度重装word-to-markdown"><a href="#速度重装word-to-markdown" class="headerlink" title="速度重装word-to-markdown"></a>速度重装word-to-markdown</h4><blockquote>
+<p>\$ gem install word-to-markdown</p>
+</blockquote>
+<p>这次安装过程果然顺利，装完运行：</p>
+<blockquote>
+<p>\$ w2m 1.docx</p>
+</blockquote>
+<p>我勒个去，转换结果直接输出到命令行了，而且也貌似并没有提供什么参数来指定输出文件，官方的意思就是：我输出到stdout了，剩下的你自己玩吧。</p>
+<p>那就redirect一下吧</p>
+<blockquote>
+<p>\$ w2m 1.docx > 1.md</p>
+</blockquote>
+<p>so easy嘛，顺便说说这个redicrect，有这么几种用法：</p>
+<blockquote>
+<p>system_profiler > file.txt</p>
+</blockquote>
+<ol>
+<li><p>> take the output of system_profiler and save it to the file<br>file.txt</p>
+</li>
+<li><p>&amp;> The &amp; tells the shell to redirect the standard output and<br>standard error to the file.</p>
+</li>
+<li><p>2> If you want to just output standard error</p>
+</li>
+<li><p>>> appending to the existing file</p>
+</li>
+</ol>
+<h3 id="大名鼎鼎的Pandoc"><a href="#大名鼎鼎的Pandoc" class="headerlink" title="大名鼎鼎的Pandoc"></a>大名鼎鼎的Pandoc</h3><p>其实一开始只知道第一个方案，后来搜搜索的过程中居然发现大名鼎鼎的的Pandoc也是能干这个事情的，</p>
+<p>macOS安装（<a href="http://pandoc.org/installing.html" target="_blank" rel="noopener">[其他的系统看官网]{.underline}</a>）：You<br>can install pandoc using <a href="http://brew.sh/" target="_blank" rel="noopener">[homebrew]{.underline}</a>:<br> brew install pandoc</p>
+<blockquote>
+<p># Docx to markdown, including math:</p>
+<p>\$ pandoc -s example30.docx -t markdown -o example35.md</p>
+</blockquote>
+<p><a href="https://link.jianshu.com/?t=http://pandoc.org/demos.html" target="_blank" rel="noopener">[更多的Pandoc转换命令]{.underline}</a></p>
+<h2 id="对Table转换的表现"><a href="#对Table转换的表现" class="headerlink" title="对Table转换的表现"></a>对Table转换的表现</h2><p>由于其实要要写数据库设计文档，所以我主要是比较关注对Table的转换</p>
+<h3 id="word-to-markdown"><a href="#word-to-markdown" class="headerlink" title="word-to-markdown"></a>word-to-markdown</h3><p>转出这么个玩意儿</p>
+<blockquote>
+<p>| **名称** | **数据类型** | **默认值** | **说明**<br>| **描述** |</p>
+<p>| --- | --- | --- | --- | --- |</p>
+<p>| id | int(11) |</p>
+<p>| 主键 |</p>
+<p>|</p>
+<p>| f\_classify\_id | tinyint(2) |</p>
+<p>| 一级分类id | act\_classify表的id |</p>
+<p>| s\_classify\_id | tinyint(2) |</p>
+<p>| 二级分类ID |</p>
+<p>|</p>
+<p>| count | int(11) |</p>
+<p>| 命中次数 |</p>
+<p>|</p>
+<p>| date | date |</p>
+<p>| 日期 | 单位：天 |</p>
+</blockquote>
+<p>没细看源码，这种转换效果，估计对合并单元格的表格支持是有问题的（不过md的table本就不支持合并单单元格这么复杂的玩意儿），很明显的在不该换行的地方换行了。</p>
+<h3 id="Pandoc"><a href="#Pandoc" class="headerlink" title="Pandoc"></a>Pandoc</h3><p>其实pandoc并不支持markdown里的table语法，只是吧表格转换成了一个视觉上的表格。</p>
+<blockquote>
+<p>**名称** **数据类型** **默认值** **说明** **描述**</p>
+<p>----------------- --------------<br>------------ ------------<br>---------------------</p>
+<p>id int(11) 主键</p>
+<p>f\_classify\_id tinyint(2) 一级分类id act\_classify表的id</p>
+<p>s\_classify\_id tinyint(2) 二级分类ID</p>
+<p>count int(11) 命中次数</p>
+<p>date date 日期 单位：天</p>
+</blockquote>
+<p>这就有点尴尬了，不过其实标准的md语法并不支持table，好吧，就这么自我安慰好了。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ol>
+<li><p>用word-to-markdown之后进一步手动编辑整理完善表格。</p>
+</li>
+<li><p>如果没什么特别要求，只是想把word转成markdown看看，然后看着更方便的话，pandoc对table的转换更具有可读性，对一些不支持table语法转换的markdown编辑器来说也更友好一些。</p>
+</li>
+</ol>
 
       
     </div>
@@ -452,9 +483,9 @@ return image;
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
           
-            <a href="/tags/SandBox/" rel="tag"><i class="fa fa-tag"></i> SandBox</a>
+            <a href="/tags/markdown/" rel="tag"><i class="fa fa-tag"></i> markdown</a>
           
         </div>
       
@@ -467,8 +498,8 @@ return image;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iOS - 开发代码部分规范.html" rel="next" title="iOS - 开发代码部分规范">
-                <i class="fa fa-chevron-left"></i> iOS - 开发代码部分规范
+              <a href="/iOS - 自动化编译打包(Jenkins).html" rel="next" title="iOS - 自动化编译打包(Jenkins)">
+                <i class="fa fa-chevron-left"></i> iOS - 自动化编译打包(Jenkins)
               </a>
             
           </div>
@@ -477,8 +508,8 @@ return image;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/iOS - 自动化编译打包(Jenkins).html" rel="prev" title="iOS - 自动化编译打包(Jenkins)">
-                iOS - 自动化编译打包(Jenkins) <i class="fa fa-chevron-right"></i>
+              <a href="/Swift - 开源框架总结.html" rel="prev" title="Swift - 开源框架总结">
+                Swift - 开源框架总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -644,7 +675,7 @@ return image;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#沙盒机制简介"><span class="nav-number">1.</span> <span class="nav-text">沙盒机制简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开模拟器沙盒方法"><span class="nav-number">2.</span> <span class="nav-text">打开模拟器沙盒方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取沙盒根目录"><span class="nav-number">3.</span> <span class="nav-text">获取沙盒根目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Documents路径"><span class="nav-number">4.</span> <span class="nav-text">获取Documents路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Library路径"><span class="nav-number">5.</span> <span class="nav-text">获取Library路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Caches路径"><span class="nav-number">6.</span> <span class="nav-text">获取Caches路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-tmp-路径"><span class="nav-number">7.</span> <span class="nav-text">获取** tmp **路径</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案"><span class="nav-number">1.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先尝试word-to-markdown"><span class="nav-number">1.1.</span> <span class="nav-text">首先尝试word-to-markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#坑：Mac自带Ruby"><span class="nav-number">1.1.1.</span> <span class="nav-text">坑：Mac自带Ruby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ok，那就rbenv走起吧"><span class="nav-number">1.1.2.</span> <span class="nav-text">ok，那就rbenv走起吧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#速度重装word-to-markdown"><span class="nav-number">1.1.3.</span> <span class="nav-text">速度重装word-to-markdown</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大名鼎鼎的Pandoc"><span class="nav-number">1.2.</span> <span class="nav-text">大名鼎鼎的Pandoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对Table转换的表现"><span class="nav-number">2.</span> <span class="nav-text">对Table转换的表现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#word-to-markdown"><span class="nav-number">2.1.</span> <span class="nav-text">word-to-markdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandoc"><span class="nav-number">2.2.</span> <span class="nav-text">Pandoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">3.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
