@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo,Markdown,GitHub," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="公羽红楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown]{.underline}（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官方文档[传送门]{.underline}。Hexo的安装是个很快速简便的过程，但依然还是有不少坑。这里记录个我的安装过程([这是我的Hexo+GitHub+Next+Markdown个人网站]{.underline})，给大">
+<meta name="keywords" content="Hexo,Markdown,GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac - Hexo+GitHub轻松搭建自己的博客">
+<meta property="og:url" content="https://gongyuhonglou.github.io/Mac - Hexo+GitHub轻松搭建自己的博客.html">
+<meta property="og:site_name" content="公羽红楼">
+<meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown]{.underline}（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官方文档[传送门]{.underline}。Hexo的安装是个很快速简便的过程，但依然还是有不少坑。这里记录个我的安装过程([这是我的Hexo+GitHub+Next+Markdown个人网站]{.underline})，给大">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-28T09:05:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac - Hexo+GitHub轻松搭建自己的博客">
+<meta name="twitter:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown]{.underline}（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官方文档[传送门]{.underline}。Hexo的安装是个很快速简便的过程，但依然还是有不少坑。这里记录个我的安装过程([这是我的Hexo+GitHub+Next+Markdown个人网站]{.underline})，给大">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gongyuhonglou.github.io/Mac - Hexo+GitHub轻松搭建自己的博客.html"/>
+
+
+
+
+
+  <title>Mac - Hexo+GitHub轻松搭建自己的博客 | 公羽红楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gongyuhonglou" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">公羽红楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">天道酬勤！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/Mac - Hexo+GitHub轻松搭建自己的博客.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Franks Weng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/blogImg/image5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="公羽红楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mac - Hexo+GitHub轻松搭建自己的博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T12:12:12+08:00">
+                2018-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>Hexo 是一个快速、简洁且高效的博客框架。Hexo
+</code></pre><p>使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">[Markdown]{.underline}</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。官方文档<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">[传送门]{.underline}</a>。Hexo的安装是个很快速简便的过程，但依然还是有不少坑。这里记录个我的安装过程(<a href="https://gongyuhonglou.github.io/">[这是我的Hexo+GitHub+Next+Markdown个人网站]{.underline}</a>)，给大家一些参考。</p>
+<p>整理一下安装流程：</p>
+<p>1.hexo是基于nodejs的，需安装nodejs，安装nodejs最好选择homebrew</p>
+<p>2.首先查看电脑是否安装ruby，因为homebrew安装依赖ruby</p>
+<p>3.安装顺序：homebrew---->nodejs---->hexo</p>
+<h3 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h3><p>需要安装 Node.js 和 Git<br>两个应用程序，直接到官网安装最新版本即可，如已安装请跳过。</p>
+<ul>
+<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">[Node.js ]{.underline}</a>官网</p>
+</li>
+<li><p><a href="https://git-scm.com/" target="_blank" rel="noopener">[Git ]{.underline}</a>官网</p>
+</li>
+</ul>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>安装完Node.js 及 Git 后，即可使用npm来安装Hexo：</p>
+<blockquote>
+<p>\$ npm install -g hexo-cli</p>
+</blockquote>
+<h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>创建一个目录用来作为你的blog目录，例如<br>MyBlog；并在该目录中进行Hexo的初始化：</p>
+<blockquote>
+<p>\$ hexo init MyBlog</p>
+<p>\$ cd ~/MyBlog/</p>
+<p>\$ npm install</p>
+</blockquote>
+<p>新建完成后，得到以下目录：</p>
+<blockquote>
+<p>·</p>
+<p>|-- _config.yml</p>
+<p>|-- package.json</p>
+<p>|-- scaffolds</p>
+<p>|-- source</p>
+<p>| |-- _drafts</p>
+<p>| |-- _posts</p>
+<p>|-- themes</p>
+</blockquote>
+<p>至此，你就完成了Hexo的安装及初始化，接下来我们就可以进行本地的预览啦： \<br>先安装hexo server</p>
+<blockquote>
+<p>\$ sudo npm install hexo-server</p>
+</blockquote>
+<p>然后生成静态页面并打开hexo本地服务</p>
+<blockquote>
+<p>\$ hexo generate (或 hexo g)</p>
+<p>\$ hexo server</p>
+</blockquote>
+<p>按命令行提示，打开 http:\/\/localhost:4000\/<br>即可看到默认主题的默认页面了。 \<br>可能加载会很慢，因为默认主题中使用了些Google的资源，后面更换主题就会快很多了。</p>
+<p>安装homebrew</p>
+<ol>
+<li>ruby -e \”\$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)\&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)\&quot;</a>  </li>
+</ol>
+<p>安装nodejs</p>
+<ol>
+<li>brew install node  </li>
+</ol>
+<p>在安装nodejs过程中，提示如下警告：</p>
+<ol>
+<li>You have Xcode 8 installed without the CLT;  </li>
+</ol>
+<p>根据提示进行安装</p>
+<p>安装hexo</p>
+<p> sudo npm install -g hexo  </p>
+<p>创建文件夹</p>
+<ol>
+<li><p>mkdir blog  </p>
+</li>
+<li><p>cd blog  </p>
+</li>
+<li><p>hexo init  </p>
+</li>
+</ol>
+<p>此时blog文件下出现了很多文件和文件夹</p>
+<p>生成一套静态网页</p>
+<ol>
+<li><p>hexo generate /** 生成一套静态网页 **/  </p>
+</li>
+<li><p>hexo server /** 在服务器上运行 **/  </p>
+</li>
+</ol>
+<p>在浏览器上运行<a href="http://localhost:4000就能看到网站首页：" target="_blank" rel="noopener">http://localhost:4000就能看到网站首页：</a></p>
+<p>撰写博客</p>
+<p>进入终端，使用cd命令进入到有Hexo框架的目录里面，输入：</p>
+<p> hexo new post \”我的第一篇博客\”  </p>
+<p>随后出现如下的消息：</p>
+<ol>
+<li>INFO  Created: ~/blog/source/_posts/我的第一篇博客.md  </li>
+</ol>
+<p>证明创建文章成功，”我的第一篇博客”这个md文件会创建在source/_posts/的文件下。该md文件在自动生成时会带有一些属性：</p>
+<p>title:     定义了博文的标题</p>
+<p>date:   定义了创作博文的时间</p>
+<p>tags:   定义了博文的标签</p>
+<p>除了这个三个属性以外我们还可以扩展一些属性：</p>
+<p>update:  定义了最后修改的时间</p>
+<p>comments：定义能否评论此博文(默认为true)</p>
+<p>categories: 定义了博文的种类</p>
+<p>配置文件  --  _config.yml说明</p>
+<p>Hexo的每一个功能的配置文件都是_config.yml， 具体说明看下面的注解：</p>
+<ol>
+<li><p># Hexo Configuration  </p>
+</li>
+<li><p>## Docs: <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">https://hexo.io/docs/configuration.html</a>  </p>
+</li>
+<li><p>## Source: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="noopener">https://github.com/hexojs/hexo/</a>  </p>
+</li>
+<li></li>
+<li><p># Site                 ##修改以适应搜索引擎的收录  </p>
+</li>
+<li><p>title: Hexo            ##定义网站的标题  </p>
+</li>
+<li><p>subtitle:              ##定义网站的副标题  </p>
+</li>
+<li><p>description:           ##定义网站的描述  </p>
+</li>
+<li><p>author: jason jwl      ##定义网站的负责人  </p>
+</li>
+<li><p>language:              ##定义网站的语言,默认zh-Hans  </p>
+</li>
+<li><p>timezone:              ##定义网站的时区  </p>
+</li>
+<li></li>
+<li><p># URL  </p>
+</li>
+<li><p>## If your site is put in a subdirectory, set url as \’<a href="http://yoursite.com/child\&#39;" target="_blank" rel="noopener">http://yoursite.com/child\&#39;</a> and root as \’/child/\’  </p>
+</li>
+<li><p>url: <a href="http://yoursite.com" target="_blank" rel="noopener">http://yoursite.com</a>   ##定义网站访问的域名  </p>
+</li>
+<li><p>root: /      ##定义所在Web文件夹在哪个目录  </p>
+</li>
+<li><p>permalink: :year/:month/:day/:title/  ##定义时间格式  </p>
+</li>
+<li><p>permalink_defaults:  </p>
+</li>
+<li></li>
+<li><p># Directory  </p>
+</li>
+<li><p>source_dir: source   ##定义从哪个文件夹获取博客资料  </p>
+</li>
+<li><p>public_dir: public   ##定义生成静态网站到哪个文件夹  </p>
+</li>
+<li></li>
+<li><p>archive_dir: archives  </p>
+</li>
+<li><p>category_dir: categories  </p>
+</li>
+<li><p>code_dir: downloads/code  </p>
+</li>
+<li><p>i18n_dir: :lang  </p>
+</li>
+<li><p>skip_render:  </p>
+</li>
+<li></li>
+<li><p># Writing  </p>
+</li>
+<li><p>new_post_name: :title.md # File name of new posts  </p>
+</li>
+<li><p>default_layout: post  </p>
+</li>
+<li><p>titlecase: false # Transform title into titlecase  </p>
+</li>
+<li><p>external_link: true # Open external links in new tab  </p>
+</li>
+<li><p>filename_case: 0  </p>
+</li>
+<li><p>render_drafts: false  </p>
+</li>
+<li><p>post_asset_folder: false  </p>
+</li>
+<li><p>relative_link: false  </p>
+</li>
+<li><p>future: true  </p>
+</li>
+<li><p>highlight:  </p>
+</li>
+<li><p>enable: true  </p>
+</li>
+<li><p>line_number: true  </p>
+</li>
+<li><p>auto_detect: false  </p>
+</li>
+<li><p>tab_replace:  </p>
+</li>
+<li></li>
+<li><p># Category &amp; Tag  </p>
+</li>
+<li><p>default_category: uncategorized  </p>
+</li>
+<li><p>category_map:  </p>
+</li>
+<li><p>tag_map:  </p>
+</li>
+<li></li>
+<li><p># Date / Time format  </p>
+</li>
+<li><p>## Hexo uses Moment.js to parse and display date  </p>
+</li>
+<li><p>## You can customize the date format as defined in  </p>
+</li>
+<li><p>## <a href="http://momentjs.com/docs/\#/displaying/format/" target="_blank" rel="noopener">http://momentjs.com/docs/\#/displaying/format/</a>  </p>
+</li>
+<li><p>date_format: YYYY-MM-DD  </p>
+</li>
+<li><p>time_format: HH:mm:ss  </p>
+</li>
+<li></li>
+<li><p># Pagination  </p>
+</li>
+<li><p>## Set per_page to 0 to disable pagination  </p>
+</li>
+<li><p>per_page: 10  ##定义每一页多少条博客  </p>
+</li>
+<li><p>pagination_dir: page  </p>
+</li>
+<li></li>
+<li><p># Extensions  </p>
+</li>
+<li><p>## Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a>  </p>
+</li>
+<li><p>## Themes: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>  </p>
+</li>
+<li><p>theme: landscape  ##定义使用的主题  </p>
+</li>
+<li></li>
+<li><p># Deployment  </p>
+</li>
+<li><p>## Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a>  </p>
+</li>
+<li><p>deploy:  </p>
+</li>
+<li><p>type:  </p>
+</li>
+</ol>
+<p>注意：</p>
+<p>另外修改这些属性时，请注意格式，属性和值要空一个格，比如theme:<br>landscape。</p>
+<h3 id="hexo的基本配置"><a href="#hexo的基本配置" class="headerlink" title="hexo的基本配置"></a>hexo的基本配置</h3><p>以下是hexo配置文件 _config.yml 的基本内容及基本设置，更多个性化设置请参考<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">[官方文档]{.underline}</a>：</p>
+<blockquote>
+<p># Hexo Configuration</p>
+<p>## Docs: <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">https://hexo.io/docs/configuration.html</a></p>
+<p>## Source: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="noopener">https://github.com/hexojs/hexo/</a></p>
+<p># Site ##页面信息</p>
+<p>title: Who\’s Blog ##标题，即浏览器标签栏显示的内容</p>
+<p>subtitle: Why so serious? ##副标题</p>
+<p>description: ##描述，简介</p>
+<p>author: Charles Wei ##作者</p>
+<p>language: zh-CN ##语言</p>
+<p>timezone: Asia/Shanghai ##时区</p>
+<p># URL</p>
+<p>## If your site is put in a subdirectory, set url as<br>\’<a href="http://yoursite.com/child\&#39;" target="_blank" rel="noopener">http://yoursite.com/child\&#39;</a> and root as \’/child/\’</p>
+<p>url: <a href="http://wwww.charleswei.me" target="_blank" rel="noopener">http://wwww.charleswei.me</a><br>##域名，后面自定义域名后，写在这里，用<br>.github.io的话，这里用默认的不用改</p>
+<p>root: /</p>
+<p>permalink: :year/:month/:day/:title/</p>
+<p>permalink_defaults:</p>
+<p># Directory ##文件目录，可不改</p>
+<p>source_dir: source</p>
+<p>public_dir: public</p>
+<p>tag_dir: tags</p>
+<p>archive_dir: archives</p>
+<p>category_dir: categories</p>
+<p>code_dir: downloads/code</p>
+<p>i18n_dir: :lang</p>
+<p>skip_render:</p>
+<p># Writing ##静态页面生成属性，可不改</p>
+<p>new_post_name: :year-:month-:day-:title.md # File name of new posts</p>
+<p>default_layout: post</p>
+<p>titlecase: false # Transform title into titlecase</p>
+<p>external_link: true # Open external links in new tab</p>
+<p>filename_case: 0</p>
+<p>render_drafts: false</p>
+<p>post_asset_folder: false</p>
+<p>relative_link: false</p>
+<p>future: true</p>
+<p>highlight:</p>
+<p>enable: true</p>
+<p>line_number: true</p>
+<p>auto_detect: false</p>
+<p>tab_replace:</p>
+<p># Category &amp; Tag ##标签，可不改</p>
+<p>default_category: uncategorized</p>
+<p>category_map:</p>
+<p>tag_map:</p>
+<p># Date / Time format ##时间格式，可不改</p>
+<p>## Hexo uses Moment.js to parse and display date</p>
+<p>## You can customize the date format as defined in</p>
+<p>## <a href="http://momentjs.com/docs/\#/displaying/format/" target="_blank" rel="noopener">http://momentjs.com/docs/\#/displaying/format/</a></p>
+<p>date_format: YYYY-MM-DD</p>
+<p>time_format: HH:mm:ss</p>
+<p># Pagination ##每页显示文章数，按需改</p>
+<p>## Set per_page to 0 to disable pagination</p>
+<p>per_page: 10</p>
+<p>pagination_dir: page</p>
+<p># Extensions ##主题设置</p>
+<p>## Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></p>
+<p>## Themes: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p>theme: indigo</p>
+<p># Deployment ##git部署关联</p>
+<p>## Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html</a></p>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repo: github:<br><a href="https://github.com/glassweichao/glassweichao.github.io.git" target="_blank" rel="noopener">https://github.com/glassweichao/glassweichao.github.io.git</a></p>
+<p>branch: master</p>
+</blockquote>
+<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><p>Hexo具有高定制的主题效果，你可以从Hexo的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">[主题库]{.underline}</a>中选择合适的主题，也可以自己制作。 \<br>以我现在使用的<a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">[indigo]{.underline}</a>主题为例。首先将主题库clone到MyBlog目录下的themes目录：</p>
+<blockquote>
+<p>git clone git\@github.com:yscoder/hexo-theme-indigo.git themes/indigo</p>
+</blockquote>
+<p>安装less，主题使用less作为css预处理工具：</p>
+<blockquote>
+<p>npm install hexo-renderer-less --save</p>
+</blockquote>
+<p>安装feed,用于生吃RSS：</p>
+<blockquote>
+<p>npm install hexo-generator-feed --save</p>
+</blockquote>
+<p>安装json-content，用于生成静态站点数据，提供搜索功能的数据源：</p>
+<blockquote>
+<p>npm install hexo-generator-json-content --save</p>
+</blockquote>
+<p>开启标签页：</p>
+<blockquote>
+<p>hexo new page tags</p>
+</blockquote>
+<p>修改MyBlog/source/tags/index.md的源数据：</p>
+<blockquote>
+<p>layout: tags</p>
+<p>noDate: true</p>
+<p>comments: false</p>
+<p>---</p>
+</blockquote>
+<p>修改hexo配置文件_config.yml中的主题标签：</p>
+<blockquote>
+<p>theme: indigo</p>
+</blockquote>
+<p>最后修改主题配置文件MyBlog/themes/indigo/_config.yml：</p>
+<blockquote>
+<p>#添加新菜单项遵循以下规则</p>
+<p># menu:</p>
+<p># link: fontawesome图标，省略前缀，本主题前缀为 icon-，必须</p>
+<p># text: About<br>菜单显示的文字，如果省略即默认与图标一致，首字母会转大写</p>
+<p># url: /about 链接，绝对或相对路径，必须。</p>
+<p># target: _blank 是否跳出，省略则在当前页面打开</p>
+<p>menu:</p>
+<p>home:</p>
+<p>text: 主页</p>
+<p>url: /</p>
+<p>archives:</p>
+<p>url: /archives</p>
+<p>tags:</p>
+<p>url: /tags</p>
+<p>github:</p>
+<p>url: <a href="https://github.com/glassweichao" target="_blank" rel="noopener">https://github.com/glassweichao</a></p>
+<p>target: _blank</p>
+<p>link:</p>
+<p>text: 测试</p>
+<p>url: /404</p>
+<p>rss: /atom.xml</p>
+<p>#你的头像,替换掉 indigo/source/img/logo.jpg 即可</p>
+<p>urlavatar: /img/logo.jpg</p>
+<p># Content</p>
+<p>tags:</p>
+<p>title: 标签</p>
+<p>#是否开启分享</p>
+<p>share: true</p>
+<p>#是否开启搜索</p>
+<p>search: true</p>
+<p>#是否大屏幕下文章页隐藏导航</p>
+<p>hideMenu: true</p>
+<p>#是否开启toc</p>
+<p>#toc: false 关闭toc</p>
+<p>toc:</p>
+<p>list_number: true # 是否显示数字排序</p>
+<p>#浏览器标签栏小图标</p>
+<p>favicon: /favicon.ico</p>
+</blockquote>
+<p>本地同步github</p>
+<p>在github上new<br>Repository，并命名为xxxxx.github.io(xxxxx是你github的账号名)，然后把本地项目提交到github的远程项目。然后在浏览器上输入xxxxx.github.io就能访问自己的博客了。</p>
+<p>同步到github，发现网站访问不了。经测试不是主题的问题。</p>
+<p>个人建议不通过手动同步github，优先考虑通过修改_config.yml让hexo帮助我们同步github，方便快捷，配置如下所示： </p>
+<ol>
+<li><p>deploy:  </p>
+</li>
+<li><p>type: git  </p>
+</li>
+<li><p>repo: <a href="https://github.com/xxx/xxx.github.io.git" target="_blank" rel="noopener">https://github.com/xxx/xxx.github.io.git</a><br>( xxx为个人github的name)</p>
+</li>
+<li><p>branch: master    </p>
+</li>
+</ol>
+<p>配置完后，运行 </p>
+<ol>
+<li>hexo deploy  或者 hexo d  </li>
+</ol>
+<p>如出现以下的错误：</p>
+<ol>
+<li>ERROR Deployer not found: git  </li>
+</ol>
+<p>请运行以下命令进行安装：</p>
+<ol>
+<li>npm install hexo-deployer-git --save  </li>
+</ol>
+<p>再次运行hexo deploy。工程同步成功！</p>
+<h3 id="与Github账户关联"><a href="#与Github账户关联" class="headerlink" title="与Github账户关联"></a>与Github账户关联</h3><p>首先需要去<a href="https://github.com/" target="_blank" rel="noopener">[Github]{.underline}</a>注册一个账号，并新建一个名为<br>[your_account].github.io 的仓库。 \<br>然后打开前面创建的MyBlog目录下的 _config.yml 文件，在修改最下方的deploy为： \<br>*注意，冒号后面一定要加空格</p>
+<blockquote>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repo: gihub:<br><a href="https://github.com/\[your\_account\]/\[your\_accout\].github.io.git" target="_blank" rel="noopener">https://github.com/\[your\_account\]/\[your\_accout\].github.io.git</a></p>
+<p>branch: master</p>
+</blockquote>
+<p>接下来安装hexo的git部署，在命令行中执行：</p>
+<blockquote>
+<p>\$ npm install hexo-deployer-git --save</p>
+</blockquote>
+<p>最后，将生成静态页面并部署到github的仓库中，执行：</p>
+<blockquote>
+<p>\$ hexo d -g</p>
+<p>或者</p>
+<p>\$ hexo generate</p>
+<p>\$ hexo deploy</p>
+</blockquote>
+<p>当提示 ** INFO Deploy done: git  即上传成功，这时就可以通过<br>**http:\/\/[your_account].github.io 来访问你的个人站点了。 \<br>这里涉及了<a href="https://help.github.com/articles/what-is-github-pages/" target="_blank" rel="noopener">[github<br>pages ]{.underline}</a>的相关内容，有兴趣的可以去了解一下。</p>
+<p>当你增加新的文章或者插件时，可以通过以下几个命令进行同步操作：</p>
+<ol>
+<li><p>hexo clean  </p>
+</li>
+<li><p>hexo generate (hexo g) </p>
+</li>
+<li><p>hexo deploy (hexo d)  </p>
+</li>
+<li><p>hexo server (hexo s)</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+          
+            <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
+          
+            <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/iOS - 自动化编译打包(Jenkins).html" rel="next" title="iOS - 自动化编译打包(Jenkins)">
+                <i class="fa fa-chevron-left"></i> iOS - 自动化编译打包(Jenkins)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Hexo - 把word转成markdown.html" rel="prev" title="Hexo - 把word转成markdown">
+                Hexo - 把word转成markdown <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/assets/blogImg/image5.jpg"
+                alt="Franks Weng" />
+            
+              <p class="site-author-name" itemprop="name">Franks Weng</p>
+              <p class="site-description motion-element" itemprop="description">擅长iOS，Swift，Python技能，深入研究移动端开发与前后端性能。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/gongyuhonglou" target="_blank" title="Blogs">
+                      
+                        <i class="fa fa-fw fa-google"></i>Blogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gongyuhonglou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wengrp@yeah.net" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装前提"><span class="nav-number">1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化Hexo"><span class="nav-number"></span> <span class="nav-text">初始化Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo的基本配置"><span class="nav-number">1.</span> <span class="nav-text">hexo的基本配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与Github账户关联"><span class="nav-number">3.</span> <span class="nav-text">与Github账户关联</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Franks Weng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

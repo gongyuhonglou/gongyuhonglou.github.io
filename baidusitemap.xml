@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>https://gongyuhonglou.github.io/Mac%20-%20Hexo+GitHub%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2.html</loc>
+    <lastmod>2018-03-28T09:05:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac - Hexo+GitHub轻松搭建自己的博客</title>
+        <pubTime>2018-02-22T04:12:12.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Markdown</tag>
+         
+        <tag>GitHub</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="https://gongyuhonglou.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://gongyuhonglou.github.io/Hexo%20-%20%E6%8A%8Aword%E8%BD%AC%E6%88%90markdown.html</loc>
-    <lastmod>2018-03-28T08:35:21.000Z</lastmod>
+    <lastmod>2018-03-28T09:04:44.000Z</lastmod>
     <data>
         <display>
         <title>Hexo - 把word转成markdown</title>
@@ -13,7 +37,7 @@
         
         <tag>Hexo</tag>
          
-        <tag>markdown</tag>
+        <tag>Markdown</tag>
          
          
            
