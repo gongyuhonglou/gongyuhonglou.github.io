@@ -135,6 +135,27 @@
     </entry>
     
     <entry>
+      <title>Xcode常用代码块</title>
+      <link href="/Xcode%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E5%9D%97.html"/>
+      <url>/Xcode%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E5%9D%97.html</url>
+      <content type="html"><![CDATA[<p>Xcode的代码片段(Code<br>Snippets)创建自定义的代码片段，当你重用这些代码片段时，会给你带来很大的方便。</p><p><strong>常用的：</strong></p><p>1.strong：</p><p>\@property (nonatomic,strong) \&lt;#Class#> *\&lt;#object#>;</p><p>2.weak：</p><p>\@property (nonatomic,weak) \&lt;#Class#> *\&lt;#object#>;</p><p>3.copy：</p><p>\@property (nonatomic,copy) NSString *\&lt;#string#>;</p><p>4.assign：</p><p>\@property (nonatomic,assign) \&lt;#Class#> \&lt;#property#>;</p><p>5.delegate：</p><p>\@property (nonatomic,weak) id\&lt;\&lt;#protocol#>> \&lt;#delegate#>;</p><p>6.block：</p><p>\@property (nonatomic,copy) \&lt;#Block#> \&lt;#block#>;</p><p>7.mark：</p><p>#pragma mark \&lt;#mark#></p><p>8.ReUseCell：</p><p>static NSString *rid=\&lt;#rid#>;</p><p>\&lt;#Class#> *cell=[tableView<br>dequeueReusableCellWithIdentifier:rid];</p><p>if(cell==nil){</p><p>cell=[[\&lt;#Class#> alloc] initWithStyle:UITableViewCellStyleDefault<br>reuseIdentifier:rid];</p><p>}</p><p>return cell;</p><p>9.MainGCD：</p><p>dispatch_async(dispatch_get_main_queue(), \^{</p><p>\&lt;#code#></p><p>});</p><p>10.AfterGCD：</p><p>dispatch_after(dispatch_time(DISPATCH_TIME_NOW,<br>(int64_t)(\&lt;#delayInSeconds#> * NSEC_PER_SEC)),<br>dispatch_get_main_queue(), \^{</p><p>\&lt;#code to be executed after a specified delay#></p><p>});</p><p>11.OnceGCD：</p><p>static dispatch_once_t onceToken;</p><p>dispatch_once(&amp;onceToken, \^{</p><p>\&lt;#code to be executed once#></p><p>});</p><p><strong>自定义代码片段：</strong></p><p>以Strong为例：</p><p>1.在书写\@property属性的地方写下如下语句：</p><p>\@property (nonatomic,strong) \&lt;#Class#> *\&lt;#object#>;</p><p>2.选中上述语句，用鼠标左键拖到<br>下图中指示的代码片段在Xcode中的区域里，就新建了一个代码片段</p><p><img src="media/image1.png" alt="">{width=”3.7777777777777777in”<br>height=”3.0555555555555554in”}</p><p>3.松开鼠标左键的同时，会弹出代码片段编辑窗口，如下图所示：</p><p><img src="media/image2.png" alt="">{width=”5.944444444444445in”<br>height=”4.055555555555555in”}</p><p>图中从上到下的含义依次是：</p><p>①Title</p><p>代码片段的标题</p><p>②Summary</p><p>代码片段的描述文字</p><p>③Platform</p><p>可以使用代码片段的平台，有IOS/OS X/All三个选项</p><p>④Language</p><p>可以在哪些语言中使用该代码片段</p><p>⑤Completion Shortcut</p><p>代码片段的快捷方式，例：copy</p><p>⑥Completion Scopes</p><p>可以在哪些文件中使用当前代码片段，比如全部位置，头文件中等，当然可以添加多个支持的位置。</p><p>最后的一个大得空白区域是对代码片段的效果预览。</p><p>一切设置完成以后，点击该菜单右下角的Done按钮，新建工作就结束了。</p><p><strong>代码片段备份：</strong></p><p>Xcode中的代码片段默认放在下面的目录中：</p><p>~/Library/Developer/Xcode/UserData/CodeSnippets</p>]]></content>
+      
+      <categories>
+          
+          <category> Xcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Xcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Mavlink - 无人机通讯协议</title>
       <link href="/Mavlink%20-%20%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE.html"/>
       <url>/Mavlink%20-%20%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE.html</url>
