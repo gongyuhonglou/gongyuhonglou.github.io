@@ -89,25 +89,10 @@
 <meta property="og:site_name" content="公羽红楼">
 <meta property="og:description" content="从xcodebuild到shenzhen，再到Jenkins，完美演绎自动化操作。 Features  [xcodebuild自动构建命令]{.underline}  [简介]{.underline}  [构建]{.underline}  [生成ipa文件]{.underline}    [利用 shenzhen进行打包]{.underline}  [Jenkins自动化]{.underline}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image1.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image2.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image3.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image4.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image5.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image6.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image7.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image8.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image9.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image10.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image11.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image12.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image13.jpeg">
-<meta property="og:image" content="https://gongyuhonglou.github.io/media/image14.jpeg">
-<meta property="og:updated_time" content="2018-03-28T08:11:18.000Z">
+<meta property="og:updated_time" content="2018-03-28T08:14:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 自动化编译打包(Jenkins)">
 <meta name="twitter:description" content="从xcodebuild到shenzhen，再到Jenkins，完美演绎自动化操作。 Features  [xcodebuild自动构建命令]{.underline}  [简介]{.underline}  [构建]{.underline}  [生成ipa文件]{.underline}    [利用 shenzhen进行打包]{.underline}  [Jenkins自动化]{.underline}">
-<meta name="twitter:image" content="https://gongyuhonglou.github.io/media/image1.jpeg">
 
 
 
@@ -310,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-03T23:23:23+08:00">
-                2018-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T22:12:12+08:00">
+                2018-02-12
               </time>
             
 
@@ -471,40 +456,27 @@
 <p>java -jar jenkins.war</p>
 <p>待Jenkins启动后，在浏览器中输出一下地址： <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
 <p>这样就打开Jenkins管理页面了。</p>
-<p>基本界面如下：</p>
-<p><img src="media/image1.jpeg" alt="">{width=”8.333333333333334in” height=”6.444444444444445in”}Jenkins开始页面</p>
+<p>基本界面Jenkins开始页面</p>
 <p><strong>创建项目</strong></p>
-<p>点击左上角的新建，或是店家开始创建一个新任务，出现下面的页面:</p>
-<p><img src="media/image2.jpeg" alt="">{width=”12.958333333333334in” height=”10.902777777777779in”}Jenkins新建页面</p>
-<p>这里输入的名字为Demo，并选择 构建一个自由风格的软件项目，点击OK进入到下一页面：</p>
-<p><img src="media/image3.jpeg" alt="">{width=”13.11111111111111in” height=”11.48611111111111in”}Jenkins新建页面</p>
-<p>其中这里在General中，点击高级，先使用本地项目做测试：</p>
-<p><img src="media/image4.jpeg" alt="">{width=”6.944444444444445in” height=”9.305555555555555in”}Jenkins新建本地页面</p>
-<p>源码管理暂选None，构建触发器和构建环境不需要选择：</p>
-<p><img src="media/image5.jpeg" alt="">{width=”6.875in” height=”8.194444444444445in”}Jenkins新建本地页面</p>
-<p>构建，选择shell形式，使用shenzhen来构建并直接上传到蒲公英:</p>
-<p><img src="media/image6.jpeg" alt="">{width=”5.597222222222222in” height=”4.388888888888889in”}<img src="media/image7.jpeg" alt="">{width=”9.208333333333334in” height=”4.208333333333333in”}Jenkins使用shenzhen构建</p>
+<p>点击左上角的新建，或是店家开始创建一个新任务，出现下面的页面:Jenkins新建页面</p>
+<p>这里输入的名字为Demo，并选择 构建一个自由风格的软件项目，点击OK进入到下一页面：Jenkins新建页面</p>
+<p>其中这里在General中，点击高级，先使用本地项目做测试：Jenkins新建本地页面</p>
+<p>源码管理暂选None，构建触发器和构建环境不需要选择：Jenkins新建本地页面</p>
+<p>构建，选择shell形式，使用shenzhen来构建并直接上传到蒲公英:Jenkins使用shenzhen构建</p>
 <p>其中，USER_KEY 和 API_KEY 可以在蒲公英的「账户设置」中找到，之后进行相应替换。</p>
 <p>构建后的操作我们也不需要，直接点击保存。</p>
 <p><strong>构建</strong></p>
-<p>保存之后进入到项目工作目录，点击立即构建：</p>
-<p><img src="media/image8.jpeg" alt="">{width=”8.652777777777779in” height=”7.875in”}Jenkins构建</p>
-<p>会在构建历史中显示构建结构，点击进入查看：</p>
-<p><img src="media/image9.jpeg" alt="">{width=”9.73611111111111in” height=”8.055555555555555in”}Jenkins</p>
-<p>点击 Console Output 查看日志信息:</p>
-<p><img src="media/image10.jpeg" alt="">{width=”11.666666666666666in” height=”5.527777777777778in”}Jenkins</p>
+<p>保存之后进入到项目工作目录，点击立即构建：Jenkins构建</p>
+<p>会在构建历史中显示构建结构，点击进入查看：Jenkins</p>
+<p>点击 Console Output 查看日志信息:Jenkins</p>
 <p>会有一堆信息，成功的话会提示去蒲公英查看。</p>
 <p>进入到蒲公英后台，会发现我们的应用已经发布上去，可以进行测试了。</p>
 <p><strong>配置远程仓库</strong></p>
-<p>首先配置SSH:</p>
-<p><img src="media/image11.jpeg" alt="">{width=”5.347222222222222in” height=”6.027777777777778in”}Jenkins</p>
-<p>创建global的类型：</p>
-<p><img src="media/image12.jpeg" alt="">{width=”13.11111111111111in” height=”6.930555555555555in”}Jenkins</p>
-<p>进去后点击左侧的 ` Add Credentials`:</p>
-<p><img src="media/image13.jpeg" alt="">{width=”14.555555555555555in” height=”7.361111111111111in”}Jenkins</p>
+<p>首先配置SSH:Jenkins</p>
+<p>创建global的类型：Jenkins</p>
+<p>进去后点击左侧的 ` Add Credentials`:Jenkins</p>
 <p>选择SSH类型，输入自己的用户名，Private<br>Key 直接从 ~/.ssh 目录下读取就好。</p>
-<p>工程的配置，跟本地的区别就是不需要配置自定义的工作空间，同时选择源码管理中的Git，填写对应的地址信息：</p>
-<p><img src="media/image14.jpeg" alt="">{width=”13.25in” height=”10.541666666666666in”}Jenkins</p>
+<p>工程的配置，跟本地的区别就是不需要配置自定义的工作空间，同时选择源码管理中的Git，填写对应的地址信息：Jenkins</p>
 <p>然后其他的构建、查看过程都一致。</p>
 <p>到蒲公英上检查，果然存在。完美！</p>
 <p><strong>便捷设置</strong></p>
