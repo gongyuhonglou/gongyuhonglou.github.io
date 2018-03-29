@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gongyuhonglou.github.io/"/>
-  <updated>2018-03-29T06:40:03.000Z</updated>
+  <updated>2018-03-26T03:13:40.000Z</updated>
   <id>https://gongyuhonglou.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>冒泡排序</title>
-    <link href="https://gongyuhonglou.github.io/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
-    <id>https://gongyuhonglou.github.io/冒泡排序.html</id>
-    <published>2018-03-20T10:04:21.000Z</published>
-    <updated>2018-03-29T06:40:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>   本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。</p><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。</p><p>冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最前面。因为这个过程类似于水泡向上升一样，因此被命名为冒泡排序。</p><p>举个小例子：对5,3,8,6,4这个无序序列进行冒泡排序。</p><p>首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。</p><p>其过程大概是这样的：</p><p>第一趟：</p><ol><li>5, 3, 8, 6, 4 （开始）         </li><li>5, 3, 8, 4, 6 （6和4交换）     </li><li>5, 3, 4, 8, 6 （8和4交换）     </li><li>5, 3, 4, 8, 6 （3和4不用交换） </li><li>3, 5, 4, 8, 6 （5和3交换）     </li></ol><p>第二趟：</p><ol><li>3, 5, 4, 6, 8 （8和6交换)</li><li>3, 5, 4, 6, 8 （4和6不用交换） </li><li>3, 4, 5, 6, 8 （5和4交换）     </li><li>3, 4, 5, 6, 8 （3和4不用交换） </li></ol><p>这里只需要两趟就可以排序完成了。</p><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>从算法思想可知，冒泡排序需要两个循环来控制遍历，也就是需要n * n趟才能判断、交换完成。</p><p>冒泡排序的时间复杂度为O(n2)。</p><h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><pre><code>void bubbleSort(int a[], int len) {    for i = 0; i &lt; len - 1; i {           for j = len - 1; j &gt; i; --j {          if a[j] &lt; a[j - 1] {                swap(a, j, j - 1);                 }                                  }                                  }                                  }                                     void swap(int a[], int i, int j) {     int temp = a[i];                    a[i] = a[j];                      a[j] = temp;                     }                                     </code></pre><h2 id="C语言版"><a href="#C语言版" class="headerlink" title="C语言版"></a>C语言版</h2><pre><code>void bubbleSortUsingC(int arr[], int len) {         // 代表走多少趟，最后一趟就不用再走了               for (int i = 0; i &lt; len - 1; i) {                  // 从后往前走，相当于泡从水底冒出来到水面           for (int j = len - 1; j &gt; i; --j) {                 // 如果后面的比前面一个的值还要小，则需要交换       if (arr[j] &lt; arr[j - 1]) {                      swap(arr, j, j - 1);                              }                                                 }                                               }                                                 }                                                   void swap(int arr[], int i, int j) {               int temp = arr[i];                                arr[i] = arr[j];                               arr[j] = temp;                                  }                                                   </code></pre><p>测试一下：</p><pre><code>int a[5] = {5,3,8,6,4};                            bubbleSortUsingC(a, sizeof(a) / sizeof(int));        for (int i = 0; i &lt; sizeof(a) / sizeof(int); i) {   NSLog(@&quot;%d&quot;, a[i]);                          }                                                    // 打印: 3, 4, 5, 6, 8 初步如期效果                  </code></pre><h2 id="ObjC版"><a href="#ObjC版" class="headerlink" title="ObjC版"></a>ObjC版</h2><ul><li>(void)bubbleSort:(int [])array len:(size_t)len {<br>for (size_t i = 0; i &lt; len - 1; i) {<br> for (size_t j = len - 1; j &gt; i; –j) {          <pre><code>if (array[j] &lt; array[j - 1]) {              // 交换                                        int temp = array[j];                         array[j] = array[j - 1];                   array[j - 1] = temp;                         }                                                </code></pre>  }<br>}<br>}                                                      </li></ul><p>测试使用：</p><p> int a[5] = {5,3,8,6,4};                            </p><p> [self bubbleSort:a len:sizeof(a) / sizeof(int)];   </p><p>  for (int i = 0; i &lt; sizeof(a) / sizeof(int); i) { </p><pre><code>NSLog(@&quot;%d&quot;, a[i]);                          </code></pre><p>  }                                                    </p><h1 id="Swift版"><a href="#Swift版" class="headerlink" title="Swift版"></a>Swift版</h1><p>  func bubbleSort(var arr: [Int]) -&gt;[Int] { </p><p>  // 走多少趟                                  </p><p> for var i = 0; i &lt; arr.count - 1; i {     </p><p>   // 从后往前<br>   for var j = arr.count - 1; j &gt; i; –j {  </p><pre><code>// 后者 &lt; 前者 ？ 交换 ： 不交换        if arr[j] &lt; arr[j - 1] {                  let temp = arr[j]                          arr[j] = arr[j - 1]                      arr[j - 1] = temp                         }                                           }                                           }                                             return arr                                   </code></pre><p>测试使用：</p><pre><code>//由于swift中数组也是结构体，是值类型，因此需要接收返回值才能得到排序后的数组                      var arr = [5, 3, 8, 6, 4]         arr = bubbleSort(arr)               print(arr)                        </code></pre><h2 id="尝试给Model排序"><a href="#尝试给Model排序" class="headerlink" title="尝试给Model排序"></a>尝试给Model排序</h2><ul><li><p>(void)bubbleSort:(NSMutableArray *)array {                     </p><p>  for (NSUInteger i = 0; i &lt; array.count - 1; i) {              </p><pre><code>for (NSUInteger j = array.count - 1; j &gt; i; --j) {            TestModel *modelj = [array objectAtIndex:j];               TestModel *modelj_1 = [array objectAtIndex:j - 1];        // 前者 &lt; 后者 ？ 交换 ：不交换                             if ([modelj.uid compare:modelj_1.uid options:NSCaseInsensitiveSearch] == NSOrderedAscending) {                                    [array exchangeObjectAtIndex:j withObjectAtIndex:j - 1];      }                              }                              }                               </code></pre><p>  }                                 </p></li></ul><p>测试：                                                                    </p><pre><code>NSMutableArray *array = [[NSMutableArray alloc] init];         for (NSUInteger i = 0; i &lt; 10; i) {                              TestModel *model = [[TestModel alloc] init];                 model.title = [NSString stringWithFormat:@&quot;[公羽寒](http://cnblogs.com/gongyuhonglou)的技术博客：%ld&quot;, 10 - (i + 1)];                               model.uid = [NSString stringWithFormat:@&quot;%ld&quot;, 10 - (i  1)];                                  [array addObject:model];       }  [self bubbleSort:array];  for (TestModel *model in array)   {                                    NSLog(@&quot;%@%@&quot;, model.uid, model.title);    }                                  // 打印:                          </code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;   本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。&lt;/p&gt;
-&lt;h2 id=&quot;核心思想&quot;&gt;&lt;a href=&quot;#核心思
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="https://gongyuhonglou.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="iOS" scheme="https://gongyuhonglou.github.io/tags/iOS/"/>
-    
-      <category term="算法" scheme="https://gongyuhonglou.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
   
   <entry>
     <title>JIRA - 使用指南(项目跟踪管理工具)</title>
@@ -296,6 +268,34 @@
   </entry>
   
   <entry>
+    <title>冒泡排序</title>
+    <link href="https://gongyuhonglou.github.io/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html"/>
+    <id>https://gongyuhonglou.github.io/冒泡排序.html</id>
+    <published>2018-01-15T14:22:22.000Z</published>
+    <updated>2018-03-29T06:42:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>   本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。</p><h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。</p><p>冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最前面。因为这个过程类似于水泡向上升一样，因此被命名为冒泡排序。</p><p>举个小例子：对5,3,8,6,4这个无序序列进行冒泡排序。</p><p>首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。</p><p>其过程大概是这样的：</p><p>第一趟：</p><ol><li>5, 3, 8, 6, 4 （开始）         </li><li>5, 3, 8, 4, 6 （6和4交换）     </li><li>5, 3, 4, 8, 6 （8和4交换）     </li><li>5, 3, 4, 8, 6 （3和4不用交换） </li><li>3, 5, 4, 8, 6 （5和3交换）     </li></ol><p>第二趟：</p><ol><li>3, 5, 4, 6, 8 （8和6交换)</li><li>3, 5, 4, 6, 8 （4和6不用交换） </li><li>3, 4, 5, 6, 8 （5和4交换）     </li><li>3, 4, 5, 6, 8 （3和4不用交换） </li></ol><p>这里只需要两趟就可以排序完成了。</p><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>从算法思想可知，冒泡排序需要两个循环来控制遍历，也就是需要n * n趟才能判断、交换完成。</p><p>冒泡排序的时间复杂度为O(n2)。</p><h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><pre><code>void bubbleSort(int a[], int len) {    for i = 0; i &lt; len - 1; i {           for j = len - 1; j &gt; i; --j {          if a[j] &lt; a[j - 1] {                swap(a, j, j - 1);                 }                                  }                                  }                                  }                                     void swap(int a[], int i, int j) {     int temp = a[i];                    a[i] = a[j];                      a[j] = temp;                     }                                     </code></pre><h2 id="C语言版"><a href="#C语言版" class="headerlink" title="C语言版"></a>C语言版</h2><pre><code>void bubbleSortUsingC(int arr[], int len) {         // 代表走多少趟，最后一趟就不用再走了               for (int i = 0; i &lt; len - 1; i) {                  // 从后往前走，相当于泡从水底冒出来到水面           for (int j = len - 1; j &gt; i; --j) {                 // 如果后面的比前面一个的值还要小，则需要交换       if (arr[j] &lt; arr[j - 1]) {                      swap(arr, j, j - 1);                              }                                                 }                                               }                                                 }                                                   void swap(int arr[], int i, int j) {               int temp = arr[i];                                arr[i] = arr[j];                               arr[j] = temp;                                  }                                                   </code></pre><p>测试一下：</p><pre><code>int a[5] = {5,3,8,6,4};                            bubbleSortUsingC(a, sizeof(a) / sizeof(int));        for (int i = 0; i &lt; sizeof(a) / sizeof(int); i) {   NSLog(@&quot;%d&quot;, a[i]);                          }                                                    // 打印: 3, 4, 5, 6, 8 初步如期效果                  </code></pre><h2 id="ObjC版"><a href="#ObjC版" class="headerlink" title="ObjC版"></a>ObjC版</h2><ul><li>(void)bubbleSort:(int [])array len:(size_t)len {<br>for (size_t i = 0; i &lt; len - 1; i) {<br> for (size_t j = len - 1; j &gt; i; –j) {          <pre><code>if (array[j] &lt; array[j - 1]) {              // 交换                                        int temp = array[j];                         array[j] = array[j - 1];                   array[j - 1] = temp;                         }                                                </code></pre>  }<br>}<br>}                                                      </li></ul><p>测试使用：</p><p> int a[5] = {5,3,8,6,4};                            </p><p> [self bubbleSort:a len:sizeof(a) / sizeof(int)];   </p><p>  for (int i = 0; i &lt; sizeof(a) / sizeof(int); i) { </p><pre><code>NSLog(@&quot;%d&quot;, a[i]);                          </code></pre><p>  }                                                    </p><h1 id="Swift版"><a href="#Swift版" class="headerlink" title="Swift版"></a>Swift版</h1><p>  func bubbleSort(var arr: [Int]) -&gt;[Int] { </p><p>  // 走多少趟                                  </p><p> for var i = 0; i &lt; arr.count - 1; i {     </p><p>   // 从后往前<br>   for var j = arr.count - 1; j &gt; i; –j {  </p><pre><code>// 后者 &lt; 前者 ？ 交换 ： 不交换        if arr[j] &lt; arr[j - 1] {                  let temp = arr[j]                          arr[j] = arr[j - 1]                      arr[j - 1] = temp                         }                                           }                                           }                                             return arr                                   </code></pre><p>测试使用：</p><pre><code>//由于swift中数组也是结构体，是值类型，因此需要接收返回值才能得到排序后的数组                      var arr = [5, 3, 8, 6, 4]         arr = bubbleSort(arr)               print(arr)                        </code></pre><h2 id="尝试给Model排序"><a href="#尝试给Model排序" class="headerlink" title="尝试给Model排序"></a>尝试给Model排序</h2><ul><li><p>(void)bubbleSort:(NSMutableArray *)array {                     </p><p>  for (NSUInteger i = 0; i &lt; array.count - 1; i) {              </p><pre><code>for (NSUInteger j = array.count - 1; j &gt; i; --j) {            TestModel *modelj = [array objectAtIndex:j];               TestModel *modelj_1 = [array objectAtIndex:j - 1];        // 前者 &lt; 后者 ？ 交换 ：不交换                             if ([modelj.uid compare:modelj_1.uid options:NSCaseInsensitiveSearch] == NSOrderedAscending) {                                    [array exchangeObjectAtIndex:j withObjectAtIndex:j - 1];      }                              }                              }                               </code></pre><p>  }                                 </p></li></ul><p>测试：                                                                    </p><pre><code>NSMutableArray *array = [[NSMutableArray alloc] init];         for (NSUInteger i = 0; i &lt; 10; i) {                              TestModel *model = [[TestModel alloc] init];                 model.title = [NSString stringWithFormat:@&quot;[公羽寒](http://cnblogs.com/gongyuhonglou)的技术博客：%ld&quot;, 10 - (i + 1)];                               model.uid = [NSString stringWithFormat:@&quot;%ld&quot;, 10 - (i  1)];                                  [array addObject:model];       }  [self bubbleSort:array];  for (TestModel *model in array)   {                                    NSLog(@&quot;%@%@&quot;, model.uid, model.title);    }                                  // 打印:                          </code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;   本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。&lt;/p&gt;
+&lt;h2 id=&quot;核心思想&quot;&gt;&lt;a href=&quot;#核心思
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://gongyuhonglou.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="iOS" scheme="https://gongyuhonglou.github.io/tags/iOS/"/>
+    
+      <category term="算法" scheme="https://gongyuhonglou.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mavlink - 无人机通讯协议</title>
     <link href="https://gongyuhonglou.github.io/Mavlink%20-%20%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE.html"/>
     <id>https://gongyuhonglou.github.io/Mavlink - 无人机通讯协议.html</id>
@@ -341,11 +341,11 @@
       <category term="Git" scheme="https://gongyuhonglou.github.io/categories/Git/"/>
     
     
-      <category term="Bitbucket" scheme="https://gongyuhonglou.github.io/tags/Bitbucket/"/>
-    
       <category term="分布式版本控制系统" scheme="https://gongyuhonglou.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F/"/>
     
       <category term="Git" scheme="https://gongyuhonglou.github.io/tags/Git/"/>
+    
+      <category term="Bitbucket" scheme="https://gongyuhonglou.github.io/tags/Bitbucket/"/>
     
   </entry>
   
