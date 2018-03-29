@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,算法," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="擅长iOS，Swift，Python技能，深入研究移动端开发与前后端性能。">
-<meta name="keywords" content="iOS,Swift,python,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,iOSDeveloper,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="公羽红楼">
-<meta property="og:url" content="https://gongyuhonglou.github.io/tags/Swift/index.html">
+<meta name="description" content="快速排序是在面试中经常问到的算法题，也比较难掌握，特别是没有经常写算法的人儿。 算法思想 用笔者所理解的话来说，其算法思想是利用分而治之的思想，每一趟都保证左边比基准小，右边比基准大，而且递归划分排序。 一趟快速排序的算法是： 1、设置两个变量i、j，排序开始的时候：i=0，j=N-1； 2、以第一个数组元素作为基准数据，赋值给key，即key=A[0]； 3、从j开始向前搜索，即由后开始向前搜索">
+<meta name="keywords" content="iOS,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="https://gongyuhonglou.github.io/快速排序.html">
 <meta property="og:site_name" content="公羽红楼">
-<meta property="og:description" content="擅长iOS，Swift，Python技能，深入研究移动端开发与前后端性能。">
+<meta property="og:description" content="快速排序是在面试中经常问到的算法题，也比较难掌握，特别是没有经常写算法的人儿。 算法思想 用笔者所理解的话来说，其算法思想是利用分而治之的思想，每一趟都保证左边比基准小，右边比基准大，而且递归划分排序。 一趟快速排序的算法是： 1、设置两个变量i、j，排序开始的时候：i=0，j=N-1； 2、以第一个数组元素作为基准数据，赋值给key，即key=A[0]； 3、从j开始向前搜索，即由后开始向前搜索">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T07:04:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="公羽红楼">
-<meta name="twitter:description" content="擅长iOS，Swift，Python技能，深入研究移动端开发与前后端性能。">
+<meta name="twitter:title" content="快速排序">
+<meta name="twitter:description" content="快速排序是在面试中经常问到的算法题，也比较难掌握，特别是没有经常写算法的人儿。 算法思想 用笔者所理解的话来说，其算法思想是利用分而治之的思想，每一趟都保证左边比基准小，右边比基准大，而且递归划分排序。 一趟快速排序的算法是： 1、设置两个变量i、j，排序开始的时候：i=0，j=N-1； 2、以第一个数组元素作为基准数据，赋值给key，即key=A[0]； 3、从j开始向前搜索，即由后开始向前搜索">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://gongyuhonglou.github.io/tags/Swift/"/>
+  <link rel="canonical" href="https://gongyuhonglou.github.io/快速排序.html"/>
 
 
 
 
 
-  <title>标签: Swift | 公羽红楼</title>
+  <title>快速排序 | 公羽红楼</title>
   
 
 
@@ -146,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/gongyuhonglou" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -251,54 +252,299 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Swift<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/快速排序.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Franks Weng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/blogImg/image5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="公羽红楼">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/Swift - 开源框架总结.html" itemprop="url">
-              
-                <span itemprop="name">Swift - 开源框架总结</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">快速排序</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-03T23:23:23+08:00"
-              content="2018-03-03" >
-          03-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T22:22:22+08:00">
+                2018-01-18
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>快速排序是在面试中经常问到的算法题，也比较难掌握，特别是没有经常写算法的人儿。</p>
+<p>算法思想</p>
+<p>用笔者所理解的话来说，其算法思想是利用分而治之的思想，每一趟都保证左边比基准小，右边比基准大，而且递归划分排序。</p>
+<p>一趟快速排序的算法是：</p>
+<p>1、设置两个变量i、j，排序开始的时候：i=0，j=N-1；</p>
+<p>2、以第一个数组元素作为基准数据，赋值给key，即key=A[0]；</p>
+<p>3、从j开始向前搜索，即由后开始向前搜索(j减1)，找到第一个小于key的值A[j]，将A[j]和A[i]互换；</p>
+<p>4、从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于key的A[i]，将A[i]和A[j]互换；</p>
+<p>5、重复第3、4步，直到i=j；<br>(3,4步中，没找到符合条件的值，即3中A[j]不小于key,4中A[i]不大于key的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i，<br>j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）。</p>
+<p>举个例子：</p>
+<p>1、<br>对5,3,8,6,4这个无序序列进行快速排序，思路是右指针找比基准数小的，左指针找比基准数大的，然后交换之并更新基准位置。</p>
+<p>2、5,3,8,6,4<br>用5作为比较的基准，right往左找，4&lt;5,找到了4，left往右找，8&gt;5，找到了8，然后交换，然后变成了5,3,4,6,8，同时新的基准位置修改为left，也就是4的位置，交换后变成4,<br>3, 5, 6, 8，而新的基准位置就是5的位置了</p>
+<p>3、4,3,5,6,8 然后以5为基准划分成两个小组（4, 3）和（5, 6,<br>8），第一个小组和第二个小组分别进入到步骤1，最后形成（3，4）而（5，6，8）因为已经有序，所以整个过程就完成了。最终形成（3,4,5,6,8）</p>
+<p>上面留下来了一个问题为什么一定要j指针先动呢？首先这也不是绝对的，这取决于基准数的位置，因为在最后两个指针相遇的时候，要交换基准数到相遇的位置。一般选取第一个数作为基准数，那么就是在左边，所以最后相遇的数要和基准数交换，那么相遇的数一定要比基准数小。所以j指针先移动才能先找到比基准数小的数。</p>
+<p>时间复杂度</p>
+<p>快速排序是不稳定的，其时间平均时间复杂度是O ( nlgn )。</p>
+<p>伪代码</p>
+<p>void quickSort(int a[], int len, int left, int right) {</p>
+<p>// 所有都排序完毕了，就退出递归</p>
+<p>if left &gt;= right {</p>
+<p>return;</p>
+<p>}</p>
+<p>// 每一趟划分，使左边的比基准小，右边的比基准大，并返回新的基准的位置</p>
+<p>int baseIndex = partition(a, len, left, right);</p>
+<p>// 递归排序左部分</p>
+<p>quickSort(a, len, left, baseIndex - 1);</p>
+<p>// 递归排序右部分</p>
+<p>quickSort(a, len, baseIndex + 1, right)</p>
+<p>}</p>
+<p>int partition(int a[], int len, int left, int right) {</p>
+<p>// 记录哪个是基准数</p>
+<p>int base = a[left];</p>
+<p>// 记录当前基准数的位置</p>
+<p>int baseIndex = left;</p>
+<p>while left &lt; right {</p>
+<p>// 先从右边往左边扫描，找到第一个比base还要小的数，但是不能与left相遇</p>
+<p>while left &lt; right &amp;&amp; a[right] &gt;= base {</p>
+<p>right–;</p>
+<p>}</p>
+<p>// 再从左边往右边扫描，找到第一个比base还要大的数，但是不能与right相遇</p>
+<p>while left &lt; right &amp;&amp; a[left] &lt;= base {</p>
+<p>left++;</p>
+<p>}</p>
+<p>// 将所扫描到的第一个比基准数小和第一个比基准数大的数交换</p>
+<p>swap(a, left, right);</p>
+<p>}</p>
+<p>// 交换left与baseIndex对应的元素，将left位置的元素作为新的基准数</p>
+<p>swap(a, baseIndex, left);</p>
+<p>// 返回新的基准位置</p>
+<p>return left;</p>
+<p>}</p>
+<p>void swap(int a[], int i, int j) {</p>
+<p>int temp = a[i];</p>
+<p>a[i] = a[j];</p>
+<p>a[j] = temp;</p>
+<p>}</p>
+<p>C语言版</p>
+<p>void quickSort(int a[], int len, int left, int right) {</p>
+<p>if (left &gt;= right) {</p>
+<p>return;</p>
+<p>}</p>
+<p>// 一次划分后，得到基准数据的位置</p>
+<p>int baseIndex = partition(a, len, left, right);</p>
+<p>// 快排左边部分</p>
+<p>quickSort(a, len, left, baseIndex - 1);</p>
+<p>// 快排右边部分</p>
+<p>quickSort(a, len, baseIndex + 1, right);</p>
+<p>}</p>
+<p>int partition(int a[], int len, int left, int right) {</p>
+<p>// 每一次的划分，都让第一个元素作为基准</p>
+<p>int base = a[left];</p>
+<p>// 记下刚开始的基准的位置， 便于最后相遇时交换</p>
+<p>int baseIndex = left;</p>
+<p>while (left &lt; right) {</p>
+<p>// 查找右部分比base还小的元素的下标</p>
+<p>while (left &lt; right &amp;&amp; a[right] &gt;= base) {</p>
+<p>right–;</p>
+<p>}</p>
+<p>// 查找左部分比base还大的元素的下标</p>
+<p>while (left &lt; right &amp;&amp; a[left] &lt;= base) {</p>
+<p>left++;</p>
+<p>}</p>
+<p>// 将这一趟比基准大和比基准小的所找到的第一个值，互相交换</p>
+<p>swap(a, left, right);</p>
+<p>}</p>
+<p>// 在left与right相遇时，将基准数与相遇点交换</p>
+<p>// 这样这一次划分，就可以保证左边的比基准数小，右边的比基准数大</p>
+<p>swap(a, baseIndex, left);</p>
+<p>// 划分完成后，以left位置的元素作为新的基准，分成左右序列，分别递归排序</p>
+<p>return left;</p>
+<p>}</p>
+<p>void swap(int a[], int i, int j) {</p>
+<p>int temp = a[i];</p>
+<p>a[i] = a[j];</p>
+<p>a[j] = temp;</p>
+<p>}</p>
+<p>Swift版</p>
+<p>func quickSort(inout a: [Int], left: Int, right: Int) {</p>
+<p>if left &gt;= right {</p>
+<p>return</p>
+<p>}</p>
+<p>let baseIndex = partition(&amp;a, left: left, right: right)</p>
+<p>quickSort(&amp;a, left: left, right: baseIndex - 1)</p>
+<p>quickSort(&amp;a, left: baseIndex + 1, right: right)</p>
+<p>}</p>
+<p>func partition(inout a: [Int], var left: Int, var right: Int) -&gt;Int {</p>
+<p>let base = a[left]</p>
+<p>let baseIndex = left</p>
+<p>while left &lt; right {</p>
+<p>while left &lt; right &amp;&amp; a[right] &gt;= base {</p>
+<p>right–</p>
+<p>}</p>
+<p>while left &lt; right &amp;&amp; a[left] &lt;= base {</p>
+<p>left++</p>
+<p>}</p>
+<p>swapInt(&amp;a, i: left, j: right)</p>
+<p>}</p>
+<p>swapInt(&amp;a, i: baseIndex, j: left)</p>
+<p>return left</p>
+<p>}</p>
+<p>func swapInt(inout a: [Int], i: Int, j: Int) {</p>
+<p>let temp = a[i]</p>
+<p>a[i] = a[j]</p>
+<p>a[j] = temp</p>
+<p>}</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/插入排序.html" rel="next" title="插入排序">
+                <i class="fa fa-chevron-left"></i> 插入排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/堆排序.html" rel="prev" title="堆排序">
+                堆排序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +552,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -567,6 +817,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
