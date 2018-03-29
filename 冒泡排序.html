@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,算法," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="公羽红楼" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。 本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。 核心思想算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。 冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最">
+<meta name="keywords" content="iOS,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冒泡排序">
+<meta property="og:url" content="https://gongyuhonglou.github.io/冒泡排序.html">
+<meta property="og:site_name" content="公羽红楼">
+<meta property="og:description" content="本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。 本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。 核心思想算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。 冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T06:10:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="冒泡排序">
+<meta name="twitter:description" content="本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。 本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。 核心思想算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。 冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://gongyuhonglou.github.io/冒泡排序.html"/>
+
+
+
+
+
+  <title>冒泡排序 | 公羽红楼</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/gongyuhonglou" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">公羽红楼</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">天道酬勤！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gongyuhonglou.github.io/冒泡排序.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Franks Weng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/blogImg/image5.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="公羽红楼">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">冒泡排序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T22:22:22+08:00">
+                2018-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇一起来学习冒泡排序的算法,今天跟大家一起来学冒泡排序算法。</p>
+<p>本篇将会使用C语言、ObjC和Swift分别来实现冒泡排序，并通过ObjC来举一个模型类冒泡排序的小例子，希望对大家在开发中应用算法有所帮助。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>算法最讲究的就是算法的思想，只要将算法思想想明白了，就可以通过伪代码来写出算法，那么再使用对应的语言来实现就可以了。</p>
+<p>冒泡排序的核心思想就是通过与相邻元素的比较和交换，把小的数交换到最前面。因为这个过程类似于水泡向上升一样，因此被命名为冒泡排序。</p>
+<p>举个小例子：对5,3,8,6,4这个无序序列进行冒泡排序。</p>
+<p>首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。</p>
+<p>其过程大概是这样的：</p>
+<p>第一趟：</p>
+<p>+—+——————————–+<br>| 1 |                                |<br>|   |                                |<br>| 2 | 5, 3, 8, 6, 4 （开始）         |<br>|   |                                |<br>| 3 | 5, 3, 8, 4, 6 （6和4交换）     |<br>|   |                                |<br>| 4 | 5, 3, 4, 8, 6 （8和4交换）     |<br>|   |                                |<br>| 5 | 5, 3, 4, 8, 6 （3和4不用交换） |<br>|   |                                |<br>| 6 | 3, 5, 4, 8, 6 （5和3交换）     |<br>|   |                                |<br>| 7 |                                |<br>+—+——————————–+</p>
+<p>第二趟：</p>
+<p>+—+——————————–+<br>| 1 |                                |<br>|   |                                |<br>| 2 | 3, 5, 4, 6, 8 （8和6交换）     |<br>|   |                                |<br>| 3 | 3, 5, 4, 6, 8 （4和6不用交换） |<br>|   |                                |<br>| 4 | 3, 4, 5, 6, 8 （5和4交换）     |<br>|   |                                |<br>| 5 | 3, 4, 5, 6, 8 （3和4不用交换） |<br>|   |                                |<br>| 6 |                                |<br>+—+——————————–+</p>
+<p>这里只需要两趟就可以排序完成了。</p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>从算法思想可知，冒泡排序需要两个循环来控制遍历，也就是需要n *<br>n趟才能判断、交换完成。</p>
+<p>冒泡排序的时间复杂度为O ( n^2^ )。</p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><p>+—-+—————————————+<br>| 1  |                                       |<br>|    |                                       |<br>| 2  | void bubbleSort(int a[], int len) { |<br>|    |                                       |<br>| 3  |    for i = 0; i \&lt; len - 1; ++i {     |<br>|    |                                       |<br>| 4  |       for j = len - 1; j > i; --j { |<br>|    |                                       |<br>| 5  |          if a[j] \&lt; a[j - 1] {    |<br>|    |                                       |<br>| 6  |             swap(a, j, j - 1);        |<br>|    |                                       |<br>| 7  |          }                            |<br>|    |                                       |<br>| 8  |       }                               |<br>|    |                                       |<br>| 9  |    }                                  |<br>|    |                                       |<br>| 10 | }                                     |<br>|    |                                       |<br>| 11 |                                       |<br>|    |                                       |<br>| 12 | void swap(int a[], int i, int j) {  |<br>|    |                                       |<br>| 13 |    int temp = a[i];                 |<br>|    |                                       |<br>| 14 |    a[i] = a[j];                   |<br>|    |                                       |<br>| 15 |    a[j] = temp;                     |<br>|    |                                       |<br>| 16 | }                                     |<br>|    |                                       |<br>| 17 |                                       |<br>+—-+—————————————+</p>
+<h2 id="C语言版"><a href="#C语言版" class="headerlink" title="C语言版"></a>C语言版</h2><p>+—-+—————————————————–+<br>| 1  |                                                     |<br>|    |                                                     |<br>| 2  | void bubbleSortUsingC(int arr[], int len) {       |<br>|    |                                                     |<br>| 3  |   // 代表走多少趟，最后一趟就不用再走了             |<br>|    |                                                     |<br>| 4  |   for (int i = 0; i \&lt; len - 1; ++i) {              |<br>|    |                                                     |<br>| 5  |                                                     |<br>|    |                                                     |<br>| 6  |     // 从后往前走，相当于泡从水底冒出来到水面       |<br>|    |                                                     |<br>| 7  |     for (int j = len - 1; j > i; --j) {           |<br>|    |                                                     |<br>| 8  |                                                     |<br>|    |                                                     |<br>| 9  |       // 如果后面的比前面一个的值还要小，则需要交换 |<br>|    |                                                     |<br>| 10 |       if (arr[j] \&lt; arr[j - 1]) {               |<br>|    |                                                     |<br>| 11 |         swap(arr, j, j - 1);                        |<br>|    |                                                     |<br>| 12 |       }                                             |<br>|    |                                                     |<br>| 13 |     }                                               |<br>|    |                                                     |<br>| 14 |   }                                                 |<br>|    |                                                     |<br>| 15 | }                                                   |<br>|    |                                                     |<br>| 16 |                                                     |<br>|    |                                                     |<br>| 17 | void swap(int arr[], int i, int j) {              |<br>|    |                                                     |<br>| 18 |   int temp = arr[i];                              |<br>|    |                                                     |<br>| 19 |   arr[i] = arr[j];                              |<br>|    |                                                     |<br>| 20 |   arr[j] = temp;                                  |<br>|    |                                                     |<br>| 21 | }                                                   |<br>|    |                                                     |<br>| 22 |                                                     |<br>+—-+—————————————————–+</p>
+<p>测试一下：</p>
+<p>+—-+——————————————————+<br>| 1  |                                                      |<br>|    |                                                      |<br>| 2  | int a[5] = {5,3,8,6,4};                            |<br>|    |                                                      |<br>| 3  |                                                      |<br>|    |                                                      |<br>| 4  | bubbleSortUsingC(a, sizeof(a) / sizeof(int));        |<br>|    |                                                      |<br>| 5  |                                                      |<br>|    |                                                      |<br>| 6  | for (int i = 0; i \&lt; sizeof(a) / sizeof(int); ++i) { |<br>|    |                                                      |<br>| 7  |     NSLog(@\”%d\”, a[i]);                          |<br>|    |                                                      |<br>| 8  | }                                                    |<br>|    |                                                      |<br>| 9  |                                                      |<br>|    |                                                      |<br>| 10 | // 打印: 3, 4, 5, 6, 8 初步如期效果                  |<br>|    |                                                      |<br>| 11 |                                                      |<br>+—-+——————————————————+</p>
+<h2 id="ObjC版"><a href="#ObjC版" class="headerlink" title="ObjC版"></a>ObjC版</h2><p>+—-+——————————————————–+<br>| 1  |                                                        |<br>|    |                                                        |<br>| 2  | - (void)bubbleSort:(int [])array len:(size_t)len { |<br>|    |                                                        |<br>| 3  |   for (size_t i = 0; i \&lt; len - 1; ++i) {             |<br>|    |                                                        |<br>| 4  |     for (size_t j = len - 1; j > i; --j) {          |<br>|    |                                                        |<br>| 5  |       if (array[j] \&lt; array[j - 1]) {              |<br>|    |                                                        |<br>| 6  |         // 交换                                        |<br>|    |                                                        |<br>| 7  |         int temp = array[j];                         |<br>|    |                                                        |<br>| 8  |         array[j] = array[j - 1];                   |<br>|    |                                                        |<br>| 9  |         array[j - 1] = temp;                         |<br>|    |                                                        |<br>| 10 |       }                                                |<br>|    |                                                        |<br>| 11 |     }                                                  |<br>|    |                                                        |<br>| 12 |   }                                                    |<br>|    |                                                        |<br>| 13 | }                                                      |<br>|    |                                                        |<br>| 14 |                                                        |<br>+—-+——————————————————–+</p>
+<p>测试使用：</p>
+<p>+—+——————————————————+<br>| 1 |                                                      |<br>|   |                                                      |<br>| 2 | int a[5] = {5,3,8,6,4};                            |<br>|   |                                                      |<br>| 3 | [self bubbleSort:a len:sizeof(a) / sizeof(int)];   |<br>|   |                                                      |<br>| 4 | for (int i = 0; i \&lt; sizeof(a) / sizeof(int); ++i) { |<br>|   |                                                      |<br>| 5 |     NSLog(@\”%d\”, a[i]);                          |<br>|   |                                                      |<br>| 6 | }                                                    |<br>|   |                                                      |<br>| 7 |                                                      |<br>+—+——————————————————+</p>
+<h1 id="Swift版"><a href="#Swift版" class="headerlink" title="Swift版"></a>Swift版</h1><p>+—-+————————————————+<br>| 1  |                                                |<br>|    |                                                |<br>| 2  | func bubbleSort(var arr: [Int]) ->[Int] { |<br>|    |                                                |<br>| 3  |   // 走多少趟                                  |<br>|    |                                                |<br>| 4  |   for var i = 0; i \&lt; arr.count - 1; ++i {     |<br>|    |                                                |<br>| 5  |                                                |<br>|    |                                                |<br>| 6  |     // 从后往前                                |<br>|    |                                                |<br>| 7  |     for var j = arr.count - 1; j > i; --j {  |<br>|    |                                                |<br>| 8  |                                                |<br>|    |                                                |<br>| 9  |       // 后者 \&lt; 前者 ？ 交换 ： 不交换        |<br>|    |                                                |<br>| 10 |       if arr[j] \&lt; arr[j - 1] {            |<br>|    |                                                |<br>| 11 |         let temp = arr[j]                    |<br>|    |                                                |<br>| 12 |                                                |<br>|    |                                                |<br>| 13 |         arr[j] = arr[j - 1]                |<br>|    |                                                |<br>| 14 |         arr[j - 1] = temp                    |<br>|    |                                                |<br>| 15 |       }                                        |<br>|    |                                                |<br>| 16 |     }                                          |<br>|    |                                                |<br>| 17 |   }                                            |<br>|    |                                                |<br>| 18 |                                                |<br>|    |                                                |<br>| 19 |   return arr                                   |<br>|    |                                                |<br>| 20 | }                                              |<br>|    |                                                |<br>| 21 |                                                |<br>+—-+————————————————+</p>
+<p>测试使用：</p>
+<p>+———————————–+———————————–+<br>| 1                                 |                                   |<br>|                                   |                                   |<br>| 2                                 | //                                |<br>|                                   | 由于swift中数组也是结构体，是值类型，因此需要接收返回值才能得 |<br>| 3                                 | 到排序后的数组                    |<br>|                                   |                                   |<br>| 4                                 | var arr = [5, 3, 8, 6, 4]       |<br>|                                   |                                   |<br>| 5                                 | arr = bubbleSort(arr)             |<br>|                                   |                                   |<br>| 6                                 | print(arr)                        |<br>|                                   |                                   |<br>|                                   |                                   |<br>+———————————–+———————————–+</p>
+<h2 id="尝试给Model排序"><a href="#尝试给Model排序" class="headerlink" title="尝试给Model排序"></a>尝试给Model排序</h2><p>+———————————–+———————————–+<br>| 1                                 |                                   |<br>|                                   |                                   |<br>| 2                                 | - (void)bubbleSort:(NSMutableArr |<br>|                                   | ay *)array {                     |<br>| 3                                 |                                   |<br>|                                   |   for (NSUInteger i = 0; i \&lt; arr |<br>| 4                                 | ay.count - 1; ++i) {              |<br>|                                   |                                   |<br>| 5                                 |                                   |<br>|                                   |                                   |<br>| 6                                 |     for (NSUInteger j = array.cou |<br>|                                   | nt - 1; j > i; --j) {           |<br>| 7                                 |                                   |<br>|                                   |       TestModel *modelj = [arra |<br>| 8                                 | y objectAtIndex:j];              |<br>|                                   |                                   |<br>| 9                                 |       TestModel *modelj_1 = [a |<br>|                                   | rray objectAtIndex:j - 1];       |<br>| 10                                |                                   |<br>|                                   |                                   |<br>| 11                                |                                   |<br>|                                   |       // 前者 \&lt; 后者 ？ 交换 ：  |<br>| 12                                | 不交换                            |<br>|                                   |                                   |<br>| 13                                |       if ([modelj.uid compare:mo |<br>|                                   | delj_1.uid options:NSCaseInsensi |<br>| 14                                | tiveSearch] == NSOrderedAscendin |<br>|                                   | g) {                              |<br>| 15                                |                                   |<br>|                                   |         [array exchangeObjectAtI |<br>| 16                                | ndex:j withObjectAtIndex:j - 1]; |<br>|                                   |                                   |<br>|                                   |       }                           |<br>|                                   |                                   |<br>|                                   |     }                             |<br>|                                   |                                   |<br>|                                   |   }                               |<br>|                                   |                                   |<br>|                                   | }                                 |<br>|                                   |                                   |<br>|                                   |                                   |<br>+———————————–+———————————–+</p>
+<p>测试：</p>
+<p>+———————————–+———————————–+<br>| 1                                 |                                   |<br>|                                   |                                   |<br>| 2                                 | NSMutableArray *array = [[NSMu |<br>|                                   | tableArray alloc] init];        |<br>| 3                                 |                                   |<br>|                                   | for (NSUInteger i = 0; i \&lt; 10; + |<br>| 4                                 | +i) {                             |<br>|                                   |                                   |<br>| 5                                 |   TestModel *model = [[TestMod |<br>|                                   | el alloc] init];                |<br>| 6                                 |                                   |<br>|                                   |   model.title = [NSString string |<br>| 7                                 | WithFormat:@\”[[公羽寒]{.underline}] |<br>|                                   | (<a href="http://home.cnblogs.com/u/gongyu" target="_blank" rel="noopener">http://home.cnblogs.com/u/gongyu</a> |<br>| 8                                 | honglou/)的技术博客：%ld\”, 10 - (i + 1 |<br>|                                   | )];                              |<br>| 9                                 |                                   |<br>|                                   |   model.uid = [NSString stringWi |<br>| 10                                | thFormat:@\”%ld\”, 10 - (i + 1)] |<br>|                                   | ;                                 |<br>| 11                                |                                   |<br>|                                   |                                   |<br>| 12                                |                                   |<br>|                                   |   [array addObject:model];      |<br>| 13                                |                                   |<br>|                                   | }                                 |<br>| 14                                |                                   |<br>|                                   |                                   |<br>| 15                                |                                   |<br>|                                   | [self bubbleSort:array];        |<br>| 16                                |                                   |<br>|                                   |                                   |<br>| 17                                |                                   |<br>|                                   | for (TestModel *model in array)  |<br>| 18                                | {                                 |<br>|                                   |                                   |<br>| 19                                |   NSLog(@\”%@                     |<br>|                                   | %@\”, model.uid, model.title);    |<br>| 20                                |                                   |<br>|                                   | }                                 |<br>| 21                                |                                   |<br>|                                   |                                   |<br>| 22                                |                                   |<br>|                                   | // 打印:                          |<br>| 23                                |                                   |<br>|                                   |                                   |<br>| 24                                |                                   |<br>|                                   |                                   |<br>| 25                                |                                   |<br>|                                   |                                   |<br>| 26                                |                                   |<br>|                                   |                                   |<br>| 27                                |                                   |<br>|                                   |                                   |<br>| 28                                |                                   |<br>+———————————–+———————————–+</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Mavlink - 无人机通讯协议.html" rel="next" title="Mavlink - 无人机通讯协议">
+                <i class="fa fa-chevron-left"></i> Mavlink - 无人机通讯协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Xcode常用代码块.html" rel="prev" title="Xcode常用代码块">
+                Xcode常用代码块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/assets/blogImg/image5.jpg"
+                alt="Franks Weng" />
+            
+              <p class="site-author-name" itemprop="name">Franks Weng</p>
+              <p class="site-description motion-element" itemprop="description">擅长iOS，Swift，Python技能，深入研究移动端开发与前后端性能。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.cnblogs.com/gongyuhonglou" target="_blank" title="Blogs">
+                      
+                        <i class="fa fa-fw fa-google"></i>Blogs</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gongyuhonglou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wengrp@yeah.net" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思想"><span class="nav-number">1.</span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪代码"><span class="nav-number">3.</span> <span class="nav-text">伪代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言版"><span class="nav-number">4.</span> <span class="nav-text">C语言版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ObjC版"><span class="nav-number">5.</span> <span class="nav-text">ObjC版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift版"><span class="nav-number"></span> <span class="nav-text">Swift版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试给Model排序"><span class="nav-number">1.</span> <span class="nav-text">尝试给Model排序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Franks Weng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
